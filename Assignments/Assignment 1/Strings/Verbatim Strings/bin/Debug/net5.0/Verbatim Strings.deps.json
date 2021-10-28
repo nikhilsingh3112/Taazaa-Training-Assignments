@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Verbatim Strings/1.0.0": {
+        "runtime": {
+          "Verbatim Strings.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Verbatim Strings/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
