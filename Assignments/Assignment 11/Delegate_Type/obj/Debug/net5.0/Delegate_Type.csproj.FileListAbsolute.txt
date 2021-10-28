@@ -1,0 +1,16 @@
+C:\Users\HP\Desktop\Assignment 11\Delegate_Type\bin\Debug\net5.0\Delegate_Type.exe
+C:\Users\HP\Desktop\Assignment 11\Delegate_Type\bin\Debug\net5.0\Delegate_Type.deps.json
+C:\Users\HP\Desktop\Assignment 11\Delegate_Type\bin\Debug\net5.0\Delegate_Type.runtimeconfig.json
+C:\Users\HP\Desktop\Assignment 11\Delegate_Type\bin\Debug\net5.0\Delegate_Type.runtimeconfig.dev.json
+C:\Users\HP\Desktop\Assignment 11\Delegate_Type\bin\Debug\net5.0\Delegate_Type.dll
+C:\Users\HP\Desktop\Assignment 11\Delegate_Type\bin\Debug\net5.0\ref\Delegate_Type.dll
+C:\Users\HP\Desktop\Assignment 11\Delegate_Type\bin\Debug\net5.0\Delegate_Type.pdb
+C:\Users\HP\Desktop\Assignment 11\Delegate_Type\obj\Debug\net5.0\Delegate_Type.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\Assignment 11\Delegate_Type\obj\Debug\net5.0\Delegate_Type.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Desktop\Assignment 11\Delegate_Type\obj\Debug\net5.0\Delegate_Type.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\Assignment 11\Delegate_Type\obj\Debug\net5.0\Delegate_Type.AssemblyInfo.cs
+C:\Users\HP\Desktop\Assignment 11\Delegate_Type\obj\Debug\net5.0\Delegate_Type.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\Assignment 11\Delegate_Type\obj\Debug\net5.0\Delegate_Type.dll
+C:\Users\HP\Desktop\Assignment 11\Delegate_Type\obj\Debug\net5.0\ref\Delegate_Type.dll
+C:\Users\HP\Desktop\Assignment 11\Delegate_Type\obj\Debug\net5.0\Delegate_Type.pdb
+C:\Users\HP\Desktop\Assignment 11\Delegate_Type\obj\Debug\net5.0\Delegate_Type.genruntimeconfig.cache
