@@ -1,0 +1,16 @@
+C:\TaazaaAssignment\bin\Debug\net5.0\TaazaaAssignment.exe
+C:\TaazaaAssignment\bin\Debug\net5.0\TaazaaAssignment.deps.json
+C:\TaazaaAssignment\bin\Debug\net5.0\TaazaaAssignment.runtimeconfig.json
+C:\TaazaaAssignment\bin\Debug\net5.0\TaazaaAssignment.runtimeconfig.dev.json
+C:\TaazaaAssignment\bin\Debug\net5.0\TaazaaAssignment.dll
+C:\TaazaaAssignment\bin\Debug\net5.0\ref\TaazaaAssignment.dll
+C:\TaazaaAssignment\bin\Debug\net5.0\TaazaaAssignment.pdb
+C:\TaazaaAssignment\obj\Debug\net5.0\TaazaaAssignment.csproj.AssemblyReference.cache
+C:\TaazaaAssignment\obj\Debug\net5.0\TaazaaAssignment.GeneratedMSBuildEditorConfig.editorconfig
+C:\TaazaaAssignment\obj\Debug\net5.0\TaazaaAssignment.AssemblyInfoInputs.cache
+C:\TaazaaAssignment\obj\Debug\net5.0\TaazaaAssignment.AssemblyInfo.cs
+C:\TaazaaAssignment\obj\Debug\net5.0\TaazaaAssignment.csproj.CoreCompileInputs.cache
+C:\TaazaaAssignment\obj\Debug\net5.0\TaazaaAssignment.dll
+C:\TaazaaAssignment\obj\Debug\net5.0\ref\TaazaaAssignment.dll
+C:\TaazaaAssignment\obj\Debug\net5.0\TaazaaAssignment.pdb
+C:\TaazaaAssignment\obj\Debug\net5.0\TaazaaAssignment.genruntimeconfig.cache
