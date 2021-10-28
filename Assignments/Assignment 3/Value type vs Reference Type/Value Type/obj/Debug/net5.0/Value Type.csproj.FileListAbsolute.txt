@@ -1,0 +1,16 @@
+C:\Users\HP\Desktop\Assignment3\Value type vs Reference Type\Value Type\bin\Debug\net5.0\Value Type.exe
+C:\Users\HP\Desktop\Assignment3\Value type vs Reference Type\Value Type\bin\Debug\net5.0\Value Type.deps.json
+C:\Users\HP\Desktop\Assignment3\Value type vs Reference Type\Value Type\bin\Debug\net5.0\Value Type.runtimeconfig.json
+C:\Users\HP\Desktop\Assignment3\Value type vs Reference Type\Value Type\bin\Debug\net5.0\Value Type.runtimeconfig.dev.json
+C:\Users\HP\Desktop\Assignment3\Value type vs Reference Type\Value Type\bin\Debug\net5.0\Value Type.dll
+C:\Users\HP\Desktop\Assignment3\Value type vs Reference Type\Value Type\bin\Debug\net5.0\ref\Value Type.dll
+C:\Users\HP\Desktop\Assignment3\Value type vs Reference Type\Value Type\bin\Debug\net5.0\Value Type.pdb
+C:\Users\HP\Desktop\Assignment3\Value type vs Reference Type\Value Type\obj\Debug\net5.0\Value Type.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\Assignment3\Value type vs Reference Type\Value Type\obj\Debug\net5.0\Value Type.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Desktop\Assignment3\Value type vs Reference Type\Value Type\obj\Debug\net5.0\Value Type.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\Assignment3\Value type vs Reference Type\Value Type\obj\Debug\net5.0\Value Type.AssemblyInfo.cs
+C:\Users\HP\Desktop\Assignment3\Value type vs Reference Type\Value Type\obj\Debug\net5.0\Value Type.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\Assignment3\Value type vs Reference Type\Value Type\obj\Debug\net5.0\Value Type.dll
+C:\Users\HP\Desktop\Assignment3\Value type vs Reference Type\Value Type\obj\Debug\net5.0\ref\Value Type.dll
+C:\Users\HP\Desktop\Assignment3\Value type vs Reference Type\Value Type\obj\Debug\net5.0\Value Type.pdb
+C:\Users\HP\Desktop\Assignment3\Value type vs Reference Type\Value Type\obj\Debug\net5.0\Value Type.genruntimeconfig.cache
