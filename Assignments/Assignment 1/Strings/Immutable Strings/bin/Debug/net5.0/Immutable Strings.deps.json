@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Immutable Strings/1.0.0": {
+        "runtime": {
+          "Immutable Strings.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Immutable Strings/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

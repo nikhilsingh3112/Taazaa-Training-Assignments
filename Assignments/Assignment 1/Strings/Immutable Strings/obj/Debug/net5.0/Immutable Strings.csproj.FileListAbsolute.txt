@@ -1,0 +1,16 @@
+C:\Users\HP\Desktop\Assignment1\Strings\Immutable Strings\bin\Debug\net5.0\Immutable Strings.exe
+C:\Users\HP\Desktop\Assignment1\Strings\Immutable Strings\bin\Debug\net5.0\Immutable Strings.deps.json
+C:\Users\HP\Desktop\Assignment1\Strings\Immutable Strings\bin\Debug\net5.0\Immutable Strings.runtimeconfig.json
+C:\Users\HP\Desktop\Assignment1\Strings\Immutable Strings\bin\Debug\net5.0\Immutable Strings.runtimeconfig.dev.json
+C:\Users\HP\Desktop\Assignment1\Strings\Immutable Strings\bin\Debug\net5.0\Immutable Strings.dll
+C:\Users\HP\Desktop\Assignment1\Strings\Immutable Strings\bin\Debug\net5.0\ref\Immutable Strings.dll
+C:\Users\HP\Desktop\Assignment1\Strings\Immutable Strings\bin\Debug\net5.0\Immutable Strings.pdb
+C:\Users\HP\Desktop\Assignment1\Strings\Immutable Strings\obj\Debug\net5.0\Immutable Strings.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\Assignment1\Strings\Immutable Strings\obj\Debug\net5.0\Immutable Strings.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Desktop\Assignment1\Strings\Immutable Strings\obj\Debug\net5.0\Immutable Strings.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\Assignment1\Strings\Immutable Strings\obj\Debug\net5.0\Immutable Strings.AssemblyInfo.cs
+C:\Users\HP\Desktop\Assignment1\Strings\Immutable Strings\obj\Debug\net5.0\Immutable Strings.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\Assignment1\Strings\Immutable Strings\obj\Debug\net5.0\Immutable Strings.dll
+C:\Users\HP\Desktop\Assignment1\Strings\Immutable Strings\obj\Debug\net5.0\ref\Immutable Strings.dll
+C:\Users\HP\Desktop\Assignment1\Strings\Immutable Strings\obj\Debug\net5.0\Immutable Strings.pdb
+C:\Users\HP\Desktop\Assignment1\Strings\Immutable Strings\obj\Debug\net5.0\Immutable Strings.genruntimeconfig.cache
