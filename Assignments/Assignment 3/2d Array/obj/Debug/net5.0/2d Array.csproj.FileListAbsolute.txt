@@ -1,0 +1,16 @@
+C:\Users\HP\Desktop\Assignment3\2d Array\bin\Debug\net5.0\2d Array.exe
+C:\Users\HP\Desktop\Assignment3\2d Array\bin\Debug\net5.0\2d Array.deps.json
+C:\Users\HP\Desktop\Assignment3\2d Array\bin\Debug\net5.0\2d Array.runtimeconfig.json
+C:\Users\HP\Desktop\Assignment3\2d Array\bin\Debug\net5.0\2d Array.runtimeconfig.dev.json
+C:\Users\HP\Desktop\Assignment3\2d Array\bin\Debug\net5.0\2d Array.dll
+C:\Users\HP\Desktop\Assignment3\2d Array\bin\Debug\net5.0\ref\2d Array.dll
+C:\Users\HP\Desktop\Assignment3\2d Array\bin\Debug\net5.0\2d Array.pdb
+C:\Users\HP\Desktop\Assignment3\2d Array\obj\Debug\net5.0\2d Array.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\Assignment3\2d Array\obj\Debug\net5.0\2d Array.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Desktop\Assignment3\2d Array\obj\Debug\net5.0\2d Array.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\Assignment3\2d Array\obj\Debug\net5.0\2d Array.AssemblyInfo.cs
+C:\Users\HP\Desktop\Assignment3\2d Array\obj\Debug\net5.0\2d Array.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\Assignment3\2d Array\obj\Debug\net5.0\2d Array.dll
+C:\Users\HP\Desktop\Assignment3\2d Array\obj\Debug\net5.0\ref\2d Array.dll
+C:\Users\HP\Desktop\Assignment3\2d Array\obj\Debug\net5.0\2d Array.pdb
+C:\Users\HP\Desktop\Assignment3\2d Array\obj\Debug\net5.0\2d Array.genruntimeconfig.cache
