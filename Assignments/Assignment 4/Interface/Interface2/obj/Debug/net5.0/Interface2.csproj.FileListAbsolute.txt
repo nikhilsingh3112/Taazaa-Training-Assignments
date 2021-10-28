@@ -1,0 +1,16 @@
+C:\Users\HP\Desktop\Assignment4\Interface\Interface2\bin\Debug\net5.0\Interface2.exe
+C:\Users\HP\Desktop\Assignment4\Interface\Interface2\bin\Debug\net5.0\Interface2.deps.json
+C:\Users\HP\Desktop\Assignment4\Interface\Interface2\bin\Debug\net5.0\Interface2.runtimeconfig.json
+C:\Users\HP\Desktop\Assignment4\Interface\Interface2\bin\Debug\net5.0\Interface2.runtimeconfig.dev.json
+C:\Users\HP\Desktop\Assignment4\Interface\Interface2\bin\Debug\net5.0\Interface2.dll
+C:\Users\HP\Desktop\Assignment4\Interface\Interface2\bin\Debug\net5.0\ref\Interface2.dll
+C:\Users\HP\Desktop\Assignment4\Interface\Interface2\bin\Debug\net5.0\Interface2.pdb
+C:\Users\HP\Desktop\Assignment4\Interface\Interface2\obj\Debug\net5.0\Interface2.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\Assignment4\Interface\Interface2\obj\Debug\net5.0\Interface2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Desktop\Assignment4\Interface\Interface2\obj\Debug\net5.0\Interface2.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\Assignment4\Interface\Interface2\obj\Debug\net5.0\Interface2.AssemblyInfo.cs
+C:\Users\HP\Desktop\Assignment4\Interface\Interface2\obj\Debug\net5.0\Interface2.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\Assignment4\Interface\Interface2\obj\Debug\net5.0\Interface2.dll
+C:\Users\HP\Desktop\Assignment4\Interface\Interface2\obj\Debug\net5.0\ref\Interface2.dll
+C:\Users\HP\Desktop\Assignment4\Interface\Interface2\obj\Debug\net5.0\Interface2.pdb
+C:\Users\HP\Desktop\Assignment4\Interface\Interface2\obj\Debug\net5.0\Interface2.genruntimeconfig.cache
