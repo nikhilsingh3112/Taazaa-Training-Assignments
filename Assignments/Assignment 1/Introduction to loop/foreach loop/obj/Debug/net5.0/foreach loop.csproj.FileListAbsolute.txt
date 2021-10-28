@@ -1,0 +1,16 @@
+C:\Users\HP\Desktop\Assignment1\foreach loop\obj\Debug\net5.0\foreach loop.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\Assignment1\foreach loop\obj\Debug\net5.0\foreach loop.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Desktop\Assignment1\foreach loop\obj\Debug\net5.0\foreach loop.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\Assignment1\foreach loop\obj\Debug\net5.0\foreach loop.AssemblyInfo.cs
+C:\Users\HP\Desktop\Assignment1\foreach loop\obj\Debug\net5.0\foreach loop.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\Assignment1\foreach loop\bin\Debug\net5.0\foreach loop.exe
+C:\Users\HP\Desktop\Assignment1\foreach loop\bin\Debug\net5.0\foreach loop.deps.json
+C:\Users\HP\Desktop\Assignment1\foreach loop\bin\Debug\net5.0\foreach loop.runtimeconfig.json
+C:\Users\HP\Desktop\Assignment1\foreach loop\bin\Debug\net5.0\foreach loop.runtimeconfig.dev.json
+C:\Users\HP\Desktop\Assignment1\foreach loop\bin\Debug\net5.0\foreach loop.dll
+C:\Users\HP\Desktop\Assignment1\foreach loop\bin\Debug\net5.0\ref\foreach loop.dll
+C:\Users\HP\Desktop\Assignment1\foreach loop\bin\Debug\net5.0\foreach loop.pdb
+C:\Users\HP\Desktop\Assignment1\foreach loop\obj\Debug\net5.0\foreach loop.dll
+C:\Users\HP\Desktop\Assignment1\foreach loop\obj\Debug\net5.0\ref\foreach loop.dll
+C:\Users\HP\Desktop\Assignment1\foreach loop\obj\Debug\net5.0\foreach loop.pdb
+C:\Users\HP\Desktop\Assignment1\foreach loop\obj\Debug\net5.0\foreach loop.genruntimeconfig.cache
