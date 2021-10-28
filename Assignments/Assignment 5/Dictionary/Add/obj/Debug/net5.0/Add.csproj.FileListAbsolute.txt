@@ -1,0 +1,16 @@
+C:\Users\HP\Desktop\AstDay5\Dictionary\Add\bin\Debug\net5.0\Add.exe
+C:\Users\HP\Desktop\AstDay5\Dictionary\Add\bin\Debug\net5.0\Add.deps.json
+C:\Users\HP\Desktop\AstDay5\Dictionary\Add\bin\Debug\net5.0\Add.runtimeconfig.json
+C:\Users\HP\Desktop\AstDay5\Dictionary\Add\bin\Debug\net5.0\Add.runtimeconfig.dev.json
+C:\Users\HP\Desktop\AstDay5\Dictionary\Add\bin\Debug\net5.0\Add.dll
+C:\Users\HP\Desktop\AstDay5\Dictionary\Add\bin\Debug\net5.0\ref\Add.dll
+C:\Users\HP\Desktop\AstDay5\Dictionary\Add\bin\Debug\net5.0\Add.pdb
+C:\Users\HP\Desktop\AstDay5\Dictionary\Add\obj\Debug\net5.0\Add.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\AstDay5\Dictionary\Add\obj\Debug\net5.0\Add.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Desktop\AstDay5\Dictionary\Add\obj\Debug\net5.0\Add.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\AstDay5\Dictionary\Add\obj\Debug\net5.0\Add.AssemblyInfo.cs
+C:\Users\HP\Desktop\AstDay5\Dictionary\Add\obj\Debug\net5.0\Add.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\AstDay5\Dictionary\Add\obj\Debug\net5.0\Add.dll
+C:\Users\HP\Desktop\AstDay5\Dictionary\Add\obj\Debug\net5.0\ref\Add.dll
+C:\Users\HP\Desktop\AstDay5\Dictionary\Add\obj\Debug\net5.0\Add.pdb
+C:\Users\HP\Desktop\AstDay5\Dictionary\Add\obj\Debug\net5.0\Add.genruntimeconfig.cache
