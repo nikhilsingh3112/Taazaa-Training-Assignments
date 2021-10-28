@@ -1,0 +1,79 @@
+Name- Sachin Yadav
+Linq Operators
+
+1. Select Operator
+
+
+-> Select method is used to select one or more items.
+
+IEnumerable<string> z = empList.Select(p => p.EmpName);  //select
+foreach (var emp in z)
+        {
+            Console.WriteLine(emp);
+        }
+
+2. StartsWith && EndsWith
+
+
+
+var empResult = from s in empList                   //StartsWith & EndsWith
+                    where s.EmpName.StartsWith("R") &&
+                    s.EmpName.EndsWith("j")
+                    select s.EmpName;
+foreach (var emp in empResult)
+        {
+            Console.WriteLine(emp);
+        }
+
+3. Where
+
+
+-> Will check for condition
+var x = empList.Where(p => p.Age >= 20);            //where
+foreach (var emp in x)
+        {
+            Console.WriteLine(emp.Age);
+        }
+
+
+4. Order by
+
+
+-> organize in ascending/descending
+
+var y = from s in empList                           //order by
+                        orderby s.Age
+                        select s.Age;
+foreach (var emp in y)
+        {
+            Console.WriteLine(emp);
+        }
+
+5. Take
+
+
+-> Will show countable number of records
+
+var t =empList.OrderByDescending(p => p.Age).Take(2);  //Take
+foreach (var emp in t)
+        {
+            Console.WriteLine(emp.Age);
+        }
+
+
+6. Distinct
+
+-> will consider different records
+
+var u =empList.Select(p => p.EmpName).Distinct(); //distinct
+foreach (var emp in u)
+        {
+            Console.WriteLine(emp);
+        }
+
+7. Count
+
+-> will count the records
+
+int v = empList.Count(c => c.Age == 20);    //count
+        Console.WriteLine(v);

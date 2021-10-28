@@ -1,0 +1,7 @@
+_______________________Agenda_____________________
+update,delete,modify,alter,drop,orderby,group by,having,in,and,or,not,between,limit,inner join,outer join,left,outer,right,full,natural,cluster,view,Function,Procedure,triger,indexing
+-----------------------------------------------------
+alternate and composite
+-----------------------------------------------------
+pgadmin4
+-----------------------------------------------------

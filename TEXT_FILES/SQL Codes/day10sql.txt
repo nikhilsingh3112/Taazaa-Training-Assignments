@@ -1,0 +1,444 @@
+postgres=# \c day9
+You are now connected to database "day9" as user "postgres".
+
+
+Creating a Table:
+day9=# create table taazaatraining(
+day9(# id int generated always as identity,
+day9(# name varchar(50),
+day9(# address varchar(50),
+day9(# age int);
+CREATE TABLE
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+INSERT:
+day9=# insert into taazaatraining(name,address,age) values ('Ganesh', 'Delhi',22);
+INSERT 0 1
+day9=# insert into taazaatraining(name,address,age) values ('nikhil', 'New Delhi',22);
+INSERT 0 1
+day9=# insert into taazaatraining(name,address,age) values ('shubham', 'Noida',22);
+INSERT 0 1
+day9=# select * from taazaatraining;
+ id |  name   |  address  | age
+----+---------+-----------+-----
+  1 | Ganesh  | Delhi     |  22
+  2 | nikhil  | New Delhi |  22
+  3 | shubham | Noida     |  22
+(3 rows)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+UPDATE:In PostgreSQL, the UPDATE command is used to change the present records in a table. To update the selected rows, we have to use the WHERE clause; otherwise, all rows would be updated.
+
+Syntax to update command-
+
+UPDATE table_name    
+SET column1 = value1,   
+column2 = value2....,   
+columnN = valueN    
+WHERE   
+condition; 
+
+day9=# update taazaatraining set name ='karan' where id=1;
+UPDATE 1
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+DELETE:The DELETE command is used to delete all existing records from a table. And the WHERE clause is used to remove the selected records or else, all the data would be eliminated.
+
+Syntax to Delete command-
+
+DELETE FROM table_name    
+WHERE [condition];
+
+day9=# delete from taazaatraining where id=2;
+DELETE 1
+day9=# select * from taazaatraining;
+ id |  name   | address | age
+----+---------+---------+-----
+  3 | shubham | Noida   |  22
+  1 | karan   | Delhi   |  22
+(2 rows)
+
+day9=# insert into taazaatraining(name,address,age) values ('nikhil', 'New Delhi',22);
+INSERT 0 1
+day9=# select * from taazaatraining;
+ id |  name   |  address  | age
+----+---------+-----------+-----
+  3 | shubham | Noida     |  22
+  1 | karan   | Delhi     |  22
+  4 | nikhil  | New Delhi |  22
+(3 rows)
+
+
+day9=# select name from taazaatraining where address='noida';
+ name
+------
+(0 rows)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+WHERE:The WHERE condition is used to describe a condition while we get data from a table or a Join various tables. It is commonly used with SELECT, UPDATE, and DELETE commands to filter the output. It returns the exact result only when the condition is fulfilled.
+
+The syntax of PostgreSQL WHERE clause
+
+SELECT column1, column2, ..... columnN    
+FROM table_name    
+WHERE [search_condition]    
+ORDER BY sort_expression 
+
+
+day9=# select name,age  from taazaatraining where address='Noida';
+  name   | age
+---------+-----
+ shubham |  22
+(1 row)
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+ORDER BY:the PostgreSQL ORDER BY condition, which is used for sorting data in ascending or descending order. And the records are fetched on the basis of one or more columns.When fetching the records from a table, the SELECT command returns rows in an undetermined order. For this, we will use the ORDER BY clause in the SELECT statement for sorting the rows of the result set.
+The ORDER BY clause permits us to sort rows returned by a SELECT condition in ascending or descending order depends on the sort expression.
+
+The syntax of PostgreSQL Order by clause
+
+SELECT column-list    
+FROM table_name    
+[WHERE condition]    
+[ORDER BY column1, column2, .. columnN] [ASC | DESC];    
+
+
+day9=# select * from taazaatraining order by id;
+ id |  name   |  address  | age
+----+---------+-----------+-----
+  1 | karan   | Delhi     |  22
+  3 | shubham | Noida     |  22
+  4 | nikhil  | New Delhi |  22
+(3 rows)
+
+
+day9=# select * from taazaatraining order by address;
+ id |  name   |  address  | age
+----+---------+-----------+-----
+  1 | karan   | Delhi     |  22
+  4 | nikhil  | New Delhi |  22
+  3 | shubham | Noida     |  22
+(3 rows)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Group by:Most importantly, this clause is used to split rows into groups where the GROUP BY condition collects the data across several records and sets the result by one or more columns.
+And every group can apply an aggregate function like COUNT() function is used to get the number of items in the groups, and the SUM() function is used to analyze the sum of items.
+
+Syntax of PostgreSQL group by clause
+
+SELECT column-list    
+FROM table_name    
+WHERE [conditions ]    
+GROUP BY column1, column2....columnN    
+ORDER BY column1, column2....columnN  
+
+
+day9=# select id from taazaatraining group by id;
+ id
+----
+  3
+  4
+  1
+(3 rows)
+
+
+day9=# select id,address from taazaatraining group by id, address;
+ id |  address
+----+-----------
+  3 | Noida
+  4 | New Delhi
+  1 | Delhi
+(3 rows)
+
+
+day9=# select id,address from taazaatraining group by id;
+ERROR:  column "taazaatraining.address" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select id,address from taazaatraining group by id;
+                  ^
+day9=# select name, address from taazaatraining group by name, address;
+  name   |  address
+---------+-----------
+ nikhil  | New Delhi
+ karan   | Delhi
+ shubham | Noida
+(3 rows)
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+HAVING:The having clause is used to specify a search condition for a group or an aggregate. And it is regularly used with the GROUP BY clause to filter groups or aggregates based on a detailed condition.
+   
+   Syntax of PostgreSQL having clause
+
+   SELECT column1, aggregate_function (column2)  
+   FROM table1, table2    
+   WHERE [ conditions ]    
+   GROUP BY column1, column2    
+   HAVING [ conditions ]    
+   ORDER BY column1, column2
+
+day9=# select id from taazaatraining group by id having  id<2;
+ id
+----
+  1
+(1 row)
+
+
+day9=# select id, name from taazaatraining group by id,name having  id<2;
+ id | name
+----+-------
+  1 | karan
+(1 row)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DISTINCT:the PostgreSQL DISTINCT clause, which is used to delete the matching rows or data from a table and get only the unique records.
+
+   Syntax of the PostgreSQL select distinct clause-
+
+   Select Distinct column1  
+   FROM table_name;  
+
+
+day9=# select distinct name from taazaatraining;
+  name
+---------
+ Rahul
+ Mohit
+ shubham
+ Areeb
+ karan
+ Amit
+ nikhil
+(7 rows)
+
+
+day9=# select distinct name, address from taazaatraining;
+  name   |  address
+---------+-----------
+ nikhil  | New Delhi
+ Areeb   | Lucknow
+ Amit    | Bihar
+ Rahul   | Lucknow
+ Mohit   | Lucknow
+ karan   | Delhi
+ shubham | Noida
+(7 rows)
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+LIMIT-PostgreSQL LIMIT clause, which is used to get a subset of rows produced by a command.
+    Syntax of PostgreSQL LIMIT Clause
+  
+    SELECT select_list   
+    FROM table_name  
+    ORDER BY sort_expression  
+    LIMIT row_count  
+
+day9=# select name,age from taazaatraining ORDER BY name limit 2;
+ name  | age
+-------+-----
+ Amit  |  24
+ Areeb |  19
+(2 rows)
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+FETCH- PostgreSQL FETCH clause, which is used to repond a portion of rows returned by a particular statement.
+The various RDBMS (relational database management systems) like H2, MySQL, and HSQLDB use the LIMIT clause extensively.
+And we have learnt Limit Clause in an earlier section of the PostgreSQL tutorial that it is used to constrain the number of rows returned by a statement.And the LIMIT clause is not following a SQL-standard.
+          
+OFFSET start { ROW | ROWS }  
+FETCH { FIRST | NEXT } [ row_count ] { ROW | ROWS } ONLY 
+
+day9=# select name from taazaatraining order by name fetch first row only;
+ name
+------
+ Amit
+(1 row) 
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+* in -The PostgreSQL IN condition is used within the WHERE clause to get those data that matches any data in a list. In other words, we can say that the IN condition is used to reduce multiple OR conditions.
+       
+       PostgreSQL IN Condition Syntax-
+      
+       Expression IN (SELECT column_name FROM table_name); 
+
+
+
+day9=# select * from taazaatraining where name IN('Areeb');
+ id | name  | address | age
+----+-------+---------+-----
+  8 | Areeb | Lucknow |  19
+(1 row)
+
+
+day9=# select * from taazaatraining where name IN('Areeb') order by id desc;
+ id | name  | address | age
+----+-------+---------+-----
+  8 | Areeb | Lucknow |  19
+(1 row)
+
+
+day9=# select * from taazaatraining where name IN('Areeb shubham') order by id desc;
+ id | name | address | age
+----+------+---------+-----
+(0 rows)
+
+
+day9=# select * from taazaatraining where name IN('Areeb', 'shubham') order by id desc;
+ id |  name   | address | age
+----+---------+---------+-----
+  8 | Areeb   | Lucknow |  19
+  3 | shubham | Noida   |  22
+(2 rows)
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+* like-The PostgreSQL Like condition is used to fetch data from a table where the defined condition satisfies the LIKE condition. The result contains strings, which are case-sensitive and follow the specified pattern.
+       In other words, we can also say that the Like condition is used to perform pattern matching for identifying the exact outcome.
+     
+       PostgreSQL Like Condition Syntax
+       
+       expression LIKE pattern [ ESCAPE 'escape_character' ] 
+
+
+day9=# select * from taazaatraining where name like 'Are%';
+ id | name  | address | age
+----+-------+---------+-----
+  8 | Areeb | Lucknow |  19
+(1 row)
+
+
+day9=# select * from taazaatraining where name like 'nik%';
+ id |  name  |  address  | age
+----+--------+-----------+-----
+  4 | nikhil | New Delhi |  22
+  9 | nikhil | New Delhi |  22
+(2 rows)
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+AND OR NOT-In PostgreSQL, the AND & OR Condition can be combined with the INSERT, SELECT, UPDATE and DELETE commands. While combining these conditions, we must be alert of where to use the parentheses so that the database knows the order to assess every condition.
+              The PostgreSQL AND & OR conditions allow us to test several conditions. And we never forget the order of operation round brackets.
+
+              PostgreSQL AND & OR Condition Syntax:
+              
+               WHERE condition1    
+               AND condition2    
+               ...    
+               OR condition_n; 
+ 
+
+day9=# select * from taazaatraining where (address='Lucknow' AND name='Mohit') OR (age<21);
+ id | name  | address | age
+----+-------+---------+-----
+  7 | Mohit | Lucknow |  23
+  8 | Areeb | Lucknow |  19
+(2 rows)
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+BETWEEN-The PostgreSQL Between condition is used to define how to retrieve values from an expression within a specific range. In other words, we can say that the Between condition is used to match a value against a range of values.
+            The PostgreSQL Between condition is also called as PostgreSQL Between Operator.In PostgreSQL, the Between Condition can be used with the SELECT, INSERT,UPDATE, and DELETE commands.
+
+             PostgreSQL Between Condition Syntax
+
+             expression BETWEEN value1 AND value2; 
+                         OR
+             expression BETWEEN low AND high;  
+
+
+
+day9=# select * from taazaatraining where age between 10 and 22;
+ id |  name   |  address  | age
+----+---------+-----------+-----
+  3 | shubham | Noida     |  22
+  1 | karan   | Delhi     |  22
+  4 | nikhil  | New Delhi |  22
+  8 | Areeb   | Lucknow   |  19
+  9 | nikhil  | New Delhi |  22
+(5 rows)
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+EXIST-the EXISTS condition can combine with the SELECT, INSERT, UPDATE, and DELETE commands. In other words, we can say that the EXISTS condition is used to check for the presence of any data in a subquery, and returns true if the subquery returns several records.
+
+         It is used to group with a subquery and test the existence of records in a subquery. The PostgreSQL EXISTS condition is a type of Boolean operator which returns the true or false result. In other words, we can say that:
+
+         If a subquery returns any record, the Exists condition will return a TRUE value, or else, it will return a FALSE
+         Here the TRUE value is always illustrated with numeric value 1, and the FALSE value is denoted as numeric value 0.
+
+          PostgreSQL EXISTS Condition Syntax
+
+          WHERE EXISTS (subquery); 
+
+day9=# select * from taazaatraining tt where exists (select 1 from taazaatraining where tt.id=tt.id and age<22) order by name;
+ id |  name   |  address  | age
+----+---------+-----------+-----
+  6 | Amit    | Bihar     |  24
+  8 | Areeb   | Lucknow   |  19
+  1 | karan   | Delhi     |  22
+  7 | Mohit   | Lucknow   |  23
+  9 | nikhil  | New Delhi |  22
+  4 | nikhil  | New Delhi |  22
+  5 | Rahul   | Lucknow   |  25
+  3 | shubham | Noida     |  22
+(8 rows)
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Date Datatype
+
+a)CREATE TABLE TaazaTraining ( id PRIMARY KEY,  Name VARCHAR NOT NULL,  Submission _date DATE NOT NULL DEFAULT CURRENT_DATE  ); 
+
+
+
+16)ARRAY (variable_name DATA TYPE[];)
+
+a)CREATE TABLE person_data ( id serial PRIMARY KEY,  person_name VARCHAR (200) ,  mobile_numbers TEXT []  );  
+  
+b) INSERT INTO person_data (person_name, mobile_numbers)  VALUES('Nikhil',ARRAY [ '985647896','6151561566' ]);
+
+
+
+
+
+17)smallint(SMALLINT data type is used to store only a partial range of records, such as the number of pages in a book, age of a person etc)
+
+a)CREATE TABLE TaazaTraining (id int generated always as identity,Name VARCHAR ( 50 )  NOT NULL,Address VARCHAR ( 50 ) NOT NULL,Age SMALLINT NOT NULL);
+
+
+
+
+
+
+

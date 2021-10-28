@@ -1,0 +1,211 @@
+27-08-2021 
+how to Declare a variable in database?
+
+link 1:-https://www.postgresqltutorial.com/plpgsql-variables/
+link 2:- https://www.techonthenet.com/postgresql/declare_vars.php#:~:text=The%20syntax%20to%20declare%20a%20variable%20in%20PostgreSQL,The%20datatype%20to%20assign%20to%20the%20variable.%20Optional.
+___________________________________________________________________________________________________________________________________________________
+The syntax to declare a variable in PostgreSQL is:
+________________________________________________
+DO
+Name
+DO -- execute an anonymous code block
+Synopsis
+DO [ LANGUAGE lang_name ] code
+Description
+DO executes an anonymous code block, or in other words a transient anonymous function in a procedural language.
+
+The code block is treated as though it were the body of a function with no parameters, returning void. It is parsed and executed a single time.
+
+The optional LANGUAGE clause can be written either before or after the code block.
+_______________________________________________
+do $$
+declare
+   id    integer := 1;
+   name varchar(50) := 'John';
+   age  numeric(10,2) := 22;
+begin 
+   raise notice '% % %', 
+           id, 
+	   name, 
+	   age;
+end $$;
+__________________________________________________
+
+DECLARE variable_name [ CONSTANT ] datatype [ NOT NULL ] [ { DEFAULT | := } initial_value ]
+postgres=# \c gurpreet_singh;
+You are now connected to database "gurpreet_singh" as user "postgres".
+gurpreet_singh=# \d
+                   List of relations
+ Schema |          Name          |   Type   |  Owner
+--------+------------------------+----------+----------
+ public | department             | table    | postgres
+ public | department_dept_id_seq | sequence | postgres
+ public | employee               | table    | postgres
+ public | employee_emp_id_seq    | sequence | postgres
+ public | employees              | table    | postgres
+(5 rows)
+
+
+gurpreet_singh=# do $$
+gurpreet_singh$# declare
+gurpreet_singh$#    id    integer := 1;
+gurpreet_singh$#    name varchar(50) := 'John';
+gurpreet_singh$#    age  numeric(10,2) := 22;
+gurpreet_singh$# begin
+gurpreet_singh$#    raise notice '% % %',
+gurpreet_singh$#            id,
+gurpreet_singh$#    name,
+gurpreet_singh$#    age;
+gurpreet_singh$# end $$;
+NOTICE:  1 John 22.00
+DO
+gurpreet_singh=# do $$
+gurpreet_singh$# declare
+gurpreet_singh$#    ctime time := now();
+gurpreet_singh$# begin
+gurpreet_singh$#    raise notice '%',ctime ;
+gurpreet_singh$# end $$;
+NOTICE:  15:37:06.388389
+DO
+gurpreet_singh=#
+
+________________________________________________________________________________
+
+Parameters or Arguments:-
+_________________________
+1)variable_name :The name to assign to the variable.
+2)CONSTANT:Optional. If specified, the value of the variable can not be changed after the variable has been initialized.
+3)datatype:The datatype to assign to the variable.
+4)NOT NULL:Optional. If specified, the variable can not contain a NULL value.
+5)initial_value:Optional. It is the value initially assigned to the variable when it is declared. If an initial_value is not specified, the variable is assigned a value of NULL.
+
+
+    
+___________________________________________________________________________________
+how to apply loop?
+link:- https://www.geeksforgeeks.org/postgresql-for-loops/
+
+for cnt in 1..10 loop //opening
+end loop;// closing
+
+gurpreet_singh=# do $$
+gurpreet_singh$# begin
+gurpreet_singh$# for a in 1..10 loop
+gurpreet_singh$# raise notice 'value of a % ',a;
+gurpreet_singh$# end loop;
+gurpreet_singh$# end ; $$
+gurpreet_singh-# ;
+NOTICE:  value of a 1
+NOTICE:  value of a 2
+NOTICE:  value of a 3
+NOTICE:  value of a 4
+NOTICE:  value of a 5
+NOTICE:  value of a 6
+NOTICE:  value of a 7
+NOTICE:  value of a 8
+NOTICE:  value of a 9
+NOTICE:  value of a 10
+DO
+gurpreet_singh=#
+
+for cnt in reverse 10..1 loop
+
+do $$
+begin
+for a in reverse 10..1 loop
+raise notice 'value of a = %',a;
+end loop;
+end ;$$;
+
+gurpreet_singh=# do $$
+gurpreet_singh$# begin
+gurpreet_singh$# for a in reverse 10..1 loop
+gurpreet_singh$# raise notice 'value of a = %',a;
+gurpreet_singh$# end loop;
+gurpreet_singh$# end ;$$;
+NOTICE:  value of a = 10
+NOTICE:  value of a = 9
+NOTICE:  value of a = 8
+NOTICE:  value of a = 7
+NOTICE:  value of a = 6
+NOTICE:  value of a = 5
+NOTICE:  value of a = 4
+NOTICE:  value of a = 3
+NOTICE:  value of a = 2
+NOTICE:  value of a = 1
+DO
+gurpreet_singh=#
+
+____________________________________________________________________________________
+
+how to apply break?
+
+There is no BREAK in PL/pgSQL.
+EXIT terminates the loop.
+
+                           exit when counter > 10;
+
+The exit statement allows you to terminate a loop including an unconditional loop, a while loop, and a for loop.
+
+
+
+how to apply continue?
+how to apply switch?
+
+how to apply if-else?
+
+gurpreet_singh=# do $$
+gurpreet_singh$# declare
+gurpreet_singh$# val integer :=14;
+gurpreet_singh$# begin
+gurpreet_singh$# if val<15 then
+gurpreet_singh$# raise notice 'value is less then 15';
+gurpreet_singh$# end if;
+gurpreet_singh$# end ; $$;
+NOTICE:  value is less then 15
+DO
+gurpreet_singh=#
+
+
+gurpreet_singh=# do $$
+gurpreet_singh$# declare
+gurpreet_singh$# val integer :=14;
+gurpreet_singh$# begin
+gurpreet_singh$# if val<15 then
+gurpreet_singh$# raise notice 'value is less then 15';
+gurpreet_singh$# else
+gurpreet_singh$# raise notice 'value is accepted i.e. %',val;
+gurpreet_singh$# end if;
+gurpreet_singh$# end  $$;
+NOTICE:  value is less then 15
+DO
+gurpreet_singh=# do $$
+gurpreet_singh$# declare
+gurpreet_singh$# val integer :=30;
+gurpreet_singh$# begin
+gurpreet_singh$# if val<15 then
+gurpreet_singh$# raise notice 'value is less then 15';
+gurpreet_singh$# else
+gurpreet_singh$# raise notice 'value is accepted i.e. %',val;
+gurpreet_singh$# end if;
+gurpreet_singh$# end ; $$;
+NOTICE:  value is accepted i.e. 30
+DO
+gurpreet_singh=#
+
+
+how to use begin-end?
+gurpreet_singh=# do $$
+gurpreet_singh$# begin
+gurpreet_singh$# raise notice ' let see working of begin and end !!!';
+gurpreet_singh$# end;$$;
+NOTICE:   let see working of begin and end !!!
+DO
+gurpreet_singh=#
+
+
+association of an object with the overloading function is called static polymorphism.
+mechanism to enhance the capablity of the object is called polymorphism by the help of function overloading or overriding is called polymorphism
+and when an object is associated with the overloaded function is called static polymorphism.
+
+

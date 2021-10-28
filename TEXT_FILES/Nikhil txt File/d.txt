@@ -1,0 +1,26 @@
+create function Display()
+returns setof emp
+as $$
+select * from emp;
+$$ language sql;
+
+create function displayUserPass(n varchar)
+returns varchar
+as $$
+begin
+	return (select password from emp where name=n);
+end;
+$$ language plpgsql;
+
+
+create function displayCount()
+returns integer
+as $$
+begin
+	return (select count(*) from emp);
+end;
+$$ language plpgsql;
+________________________________________________________________________________
+1) ifexist 
+2) all plsql work again practice
+3) 

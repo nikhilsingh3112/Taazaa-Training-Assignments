@@ -1,0 +1,190 @@
+CREATE  FUNCTION getAddress()
+RETURNS integer
+as $$
+     begin
+     return 100;
+end ;
+$$
+LANGUAGE plpgsql;
+
+
+----------------------------------------------------------------------------------------
+
+create function getName()
+returns integer
+as $$
+begin
+return 100;
+end;
+$$ language plpgsql;
+
+
+-----------------------------------------------------------------------------------------
+
+create function getAge()
+returns integer
+as $$
+           declare
+           age integer=100;
+           begin
+                       return age;
+           end;
+$$ language plpgsql;	
+
+========================================================
+Server [localhost]:
+Database [postgres]:
+Port [5432]:
+Username [postgres]:
+Password for user postgres:
+psql (13.4)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# \c projectdb
+You are now connected to database "projectdb" as user "postgres".
+projectdb=# create function getName()
+projectdb-# returns integer
+projectdb-# as $$
+projectdb$# begin
+projectdb$# return 100;
+projectdb$# end;
+projectdb$# $$ language plpgsql;
+CREATE FUNCTION
+projectdb=# select getName();
+ getname
+---------
+     100
+(1 row)
+
+
+projectdb=# create function getAge()
+projectdb-# returns integer
+projectdb-# as $$
+projectdb$#            declare
+projectdb$#            age integer=100;
+projectdb$#            begin
+projectdb$#                        return age;
+projectdb$#            end;
+projectdb$# $$ language plpgsql;
+CREATE FUNCTION
+projectdb=# select getAge();
+ getage
+--------
+    100
+(1 row)
+
+
+projectdb=# select * from membership;
+ username | password | age
+----------+----------+-----
+ Ganesh   | 12345    |  20
+ Nikhil   | 54321    |  28
+(2 rows)
+
+
+projectdb=#
+
+
+================================================================================================================
+
+
+projectdb=# CREATE FUNCTION getDetail() RETURNS SETOF membership AS $$
+projectdb$# SELECT * FROM membership;
+projectdb$# $$ LANGUAGE sql;
+CREATE FUNCTION
+projectdb=# select * from getDetail();
+ username | password | age
+----------+----------+-----
+ Ganesh   | 12345    |  20
+ Nikhil   | 54321    |  28
+(2 rows)
+
+
+projectdb=#
+
+
+========================================================================================================================================================================
+CREATE  FUNCTION getUsername()
+RETURNS varchar
+as $$
+     begin
+     return password;
+end ;
+$$
+LANGUAGE plpgsql;
+
+
+CREATE FUNCTION getDetails() RETURNS SETOF membership AS $$
+SELECT * FROM membership;
+$$ LANGUAGE sql;
+
+select * from getDetails();
+ username | password | age
+----------+----------+-----
+ Ganesh   | 12345    |  20
+ Nikhil   | 54321    |  28
+(2 rows)
+
+
+
+========================================================================================================================================================================
+
+Assignmnt 1:=====>>>>
+
+create function getuserpass(name varchar)
+RETURNS varchar
+AS $$
+begin
+    return (select password from membership where username=name);
+end;
+$$ Language  plpgsql;
+
+Output:
+
+projectdb=# create function getuserpass(name varchar)
+projectdb-# RETURNS varchar
+projectdb-# AS $$
+projectdb$# begin
+projectdb$#     return (select password from membership where username=name);
+projectdb$# end;
+projectdb$# $$ Language  plpgsql;
+CREATE FUNCTION
+projectdb=# select * from getuserpass('Ganesh');
+ getuserpass
+-------------
+ 12345
+(1 row)
+
+========================================================================================================================================================================
+
+Assignment 2=====>
+
+create function getcountData()
+RETURNS integer
+AS $$
+begin
+return (select count(*) from membership);
+end;
+$$ LANGUAGE plpgsql;
+
+select getcountData();
+
+
+Output:
+
+projectdb=# create function getcountData()
+projectdb-# RETURNS integer
+projectdb-# AS $$
+projectdb$# begin
+projectdb$# return (select count(*) from membership);
+projectdb$# end;
+projectdb$# $$ LANGUAGE plpgsql;
+CREATE FUNCTION
+projectdb=# select getcountData();
+ getcountdata
+--------------
+            2
+(1 row)

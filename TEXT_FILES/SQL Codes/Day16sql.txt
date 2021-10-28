@@ -1,0 +1,209 @@
+Agenda-
+Using Procedure
+Insert
+Update
+Delete
+Fetch multiple columns in one row
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Procedure
+ 
+To overcome the limitations of a function, PostgreSQL has a procedure that supports transactions. In the procedure, we can start, commit, rollback the transaction. However, the procedure can not return a result set like a table. It can only return the INOUT parameters.
+
+
+
+
+
+
+CREATE PROCEDURE AddEmployee
+(
+EmpId INOUT INT,  
+    EmpName VARCHAR(100),  
+    EmpDob DATE,  
+    EmpCity VARCHAR(100),  
+    EmpDesignation VARCHAR(100),  
+    EmpJoiningDate DATE 
+)LANGUAGE plpgsql
+
+
+
+
+
+Returning Keyword:
+The RETURNING keyword in PostgreSQL gives you an opportunity to return, from the insert or update statement, the values of any columns after the insert or update was run.
+
+
+
+
+
+
+LANGUAGE plpgsql AS  
+$$  
+BEGIN         
+   INSERT INTO Employees (Name,DateOfBirth,City,Designation,JoiningDate) VALUES   
+    (EmpName,  
+     EmpDob,  
+     EmpCity,  
+     EmpDesignation,  
+     EmpJoiningDate  
+    ) RETURNING Id INTO EmpId
+
+
+
+========================================================================================================================================================================
+
+create procedure addemployee
+ (
+ EmpId INOUT INT,    EmpName VARCHAR(100),
+ EmpDob DATE,
+ EmpCity VARCHAR(100),
+ EmpDesignation VARCHAR(100),
+ EmpJoiningDate DATE
+ )
+ LANGUAGE plpgsql AS
+$$
+ BEGIN
+  INSERT INTO Employees (Name,DateOfBirth,City,Designation,JoiningDate) VALUES
+    (EmpName,
+     EmpDob,
+     EmpCity,
+     EmpDesignation,
+     EmpJoiningDate
+     ) RETURNING Id INTO EmpId;
+ End
+ $$;
+
+
+=============================================================================================================================================================================
+
+2. Update:
+CREATE OR REPLACE PROCEDURE UpdateEmployee  
+(  
+    EmpId INT,  
+    EmpName VARCHAR(100),  
+    EmpDob DATE,  
+    EmpCity VARCHAR(100),  
+    EmpDesignation VARCHAR(100),  
+    EmpJoiningDate DATE  
+)  
+LANGUAGE plpgsql AS  
+$$  
+BEGIN         
+   UPDATE Employees SET   
+   Name = EmpName,  
+   DateOfBirth = EmpDob,  
+   City = EmpCity,  
+   Designation = EmpDesignation,  
+   JoiningDate = EmpJoiningDate  
+   Where Id = EmpId;  
+END  
+$$;
+
+
+
+INSERT INTO Employees (Name,DateOfBirth,City,Designation,JoiningDate) VALUES
+    ('Shubham','1999-10-01','Noida' ,'Web Developer','2020-11-01');
+
+
+CALL UpdateEmployee(1,'Ganesh','1999-10-01','Noida' ,'Web Developer','2020-11-01');
+
+
+========================================================================================================================================================================
+
+3.DELETE:
+CREATE OR REPLACE PROCEDURE DeleteEmployee  
+(  
+    EmpId INT  
+)  
+LANGUAGE plpgsql AS  
+$$  
+BEGIN  
+    DELETE FROM Employees WHERE Id = EmpId;  
+END  
+$$;
+
+call DeleteEmployee(1);
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+day16=# CREATE OR REPLACE PROCEDURE DeleteEmployee  (      EmpId INT  )  LANGUAGE plpgsql AS  $$  BEGIN      DELETE FROM Employees WHERE Id = EmpId;  END  $$;
+CREATE PROCEDURE
+day16=# call DeleteEmployee(1);
+CALL
+day16=# select * from employees;
+ id | name | dateofbirth | city | designation | joiningdate
+----+------+-------------+------+-------------+-------------
+(0 rows)
+
+
+day16=#
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+CREATE PROCEDURE SearchEmp(INOUT name1 Varchar DEFAULT null)
+  LANGUAGE plpgsql AS
+$proc$
+BEGIN
+   SELECT name FROM Employees WHERE id = 2
+   INTO name1;                              
+END
+$proc$;
+
+
+CREATE PROCEDURE SearchEmp1(i integer,INOUT name1 Varchar DEFAULT null)
+  LANGUAGE plpgsql AS
+$proc$
+BEGIN
+   SELECT name FROM Employees WHERE id = i
+   INTO name1;                              
+END
+$proc$;
+
+
+
+day16=# call SearchEmp1(2);
+  name1
+---------
+ Shubham
+(1 row)
+
+
+
+
+
+
+CREATE PROCEDURE SearchEmp5(i integer,INOUT name1 Varchar DEFAULT null, INOUT city2 Varchar DEFAULT null)
+  LANGUAGE plpgsql AS
+$proc$
+BEGIN
+   SELECT name FROM Employees WHERE id = i
+   INTO name1,city2;                              
+END
+$proc$;
+
+
+
+
+
+
+
+
+
+//////////////////////////////////
+////////////////////////////////
+/////////////////////////////////////
+//////////////////////////////////
+1) Delegate
+2) Action Delegate< >
+3) Func Delegate< >
+4)Interface
+5) Abstract class
+6)Constructor Chaining
+7)Exception Handling(try,throw catch )
+8)Enum
+9)File Handling
+10)Dictionary
+11)Hash Table
+12)List**
+13)IENumerable*
+14)Using Block in Exception handling

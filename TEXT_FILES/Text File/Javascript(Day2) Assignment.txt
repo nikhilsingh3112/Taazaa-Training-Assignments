@@ -1,0 +1,117 @@
+1)What is Function?
+======//how to create a function
+function walk()//---------->named function
+{
+    var a =102;
+    console.log(a);
+}
+walk();
+************************************************************************************************************************************************************************
+2)What is Anonymous Function?
+====//what is anonymous function?
+====//a function without name is called anonymous function.
+
+let walk=function (a)
+{
+
+    console.log(a);
+}
+walk(10);
+***************************************************************************************************************************************************************************
+3)What is Arrow Function?
+====//arrow function expression that provides a shorthand for declaring anonymous functions.
+let walk=function (a,b)//------>Anonymous Function
+{
+    console.log(a+b);
+}
+walk=(a,b)=>console.log(a*b);//------->Arrow Function
+walk(10,20);
+**************************************************************************************************************************************************************************
+4)What Is Closure?
+======Closure means that an inner function always has access to the vars and parameters of its outer function, even after the outer function has returned.========
+function makeAdder(x) {
+    return function(y) {
+      return x + y;
+    };
+  }
+  
+  var add5 = makeAdder(5);
+  var add10 = makeAdder(10);
+  
+  console.log(add5(2));  
+  console.log(add10(2));
+*******************************************************************************************************************************************************************************
+5)Exception Handling In JavaScript?
+====A try…catch is a commonly used statement in various programming languages. Basically, it is used to handle the error-prone part of the code. It initially tests the code for all possible errors it may contain, then it implements actions to tackle those errors (if occur).
+====try{} statement: Here, the code which needs possible error testing is kept within the try block.
+====catch{} statement: This block handles the error of the code by executing the set of statements written within the block.
+====Finally is an optional block of statements which is executed after the execution of try and catch statements. 
+====try {
+    var a = 2;
+    if (a == 2)
+        console.log("ok");
+}
+catch (Error) {
+    console.log("Error found");
+}
+finally {
+    console.log("Divya Rashmi");
+}
+*****************************************************************************************************************************************************************************
+6)How to Create an Object in JavaScript?
+---------------------------------------------------
+1ST APPROACH : 
+CREATING OBJECT WITH A CONSTRUCTOR:-----
+=====function person1(name,age,gender){
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+}
+//new keyword to create an object
+let person  = new person1('Divya','22','Female');
+//property accessors
+console.log(person.name);
+console.log(person.age);
+console.log(person.gender);
+----------------------------------------------------------------------------------------
+2nd Approach:
+ES6 supports class concept like any other Statically typed or object oriented language.
+function person1(name,age,gender){
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+}
+//new keyword to create an object
+let person  = new person1('Divya','22','Female');
+//property accessors
+console.log(person.name);
+-----------------------------------------------------------------------------------------
+3rd APPROACH:
+USING OBJECT LITERALS(Literals are smaller and simpler ways to define objects,We simple define the property and values inside curly braces).
+======//creating js objects with object literal
+let person = {
+    name : 'Divya',
+    age : '22',
+    gender : 'Female'
+};
+//property accessor
+console.log(person.name); //dot notation
+console.log(person['age']); //bracket notation
+
+**********************************************************************************************************************************************************************************
+7)How to make Constructor in JavaScript?
+=====We can use a constructor function to define a custom type and the new operator to create multiple objects from this type.
+=====The name of a constructor function starts with a capital letter like Person,etc.
+=====A constructor function should be called only with the new operator.
+=====function Person(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+
+    this.getFullName = function () {
+        return this.firstName + " " + this.lastName;
+    };
+}
+let person = new Person("Divya", "Rashmi");
+console.log(person.getFullName());
+****************************************************************************************************************************************************************************************
+5)What is Async?

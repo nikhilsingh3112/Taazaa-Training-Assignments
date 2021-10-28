@@ -1,0 +1,8 @@
+dotnet add package Npgsql.EntityFrameworkCore.PostgreSql
+dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore.design
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+dotnet tool update --global dotnet-ef
+dotnet add package automapper
+dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
+

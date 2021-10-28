@@ -1,0 +1,219 @@
+Server [localhost]:
+Database [postgres]:
+Port [5432]:
+Username [postgres]:
+Password for user postgres:
+psql (13.4)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# create database Day15;
+CREATE DATABASE
+postgres=# \c day15
+You are now connected to database "day15" as user "postgres".
+day15=#
+________________________________________________________________________________________________________
+creating procedure to print msg on the screen
+_________________________________________________________________________________________________________
+
+create procedure gurpreet()
+as $$
+begin
+raise notice 'Hello My Name is Gurpreet Singh';
+end;
+$$
+language plpgsql;
+________________________________________________________________________________________________________
+day15=# create procedure gurpreet()
+day15-# as $$
+day15$# begin
+day15$# raise notice 'Hello My Name is Gurpreet Singh';
+day15$# end;
+day15$# $$
+day15-# language plpgsql;
+CREATE PROCEDURE
+
+HINT:  To call a procedure, use CALL.
+day15=# call gurpreet();
+NOTICE:  Hello My Name is Gurpreet Singh
+CALL
+day15=#
+______________________________________________________________________________
+doing same thing with different ways out
+_______________________________________________________________________________
+create procedure gurpreet()
+as $$
+begin
+raise notice 'Hello My Name is Gurpreet Singh';
+end;
+$$
+language plpgsql;
+__________________________________________________________________________________
+create database sandeepdbs
+create table stud
+(
+   id integer primary key,
+   name varchar(20) not null
+)
+
+insert into stud values(101,'sakshi')
+select * from stud
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+postgres=# create database gurpreetdbs
+postgres-# ;
+CREATE DATABASE
+postgres=# \c gurpreetdbs
+You are now connected to database "gurpreetdbs" as user "postgres".
+gurpreetdbs=#
+gurpreetdbs=# create table stud(
+gurpreetdbs(# id int generated always as identity,
+gurpreetdbs(# name varchar(20) not null);
+CREATE TABLE                                ^
+gurpreetdbs=# insert into stud(name) values('Gurpreet');
+INSERT 0 1
+gurpreetdbs=#
+________________________________________________
+use sandeepDBs
+
+create function countRecords()
+returns int
+as
+ begin
+     declare @temp integer
+	 select @temp=count(*) from stud
+	 return @temp
+  
+ end
+
+ select dbo.countRecords()
++++++++++++++++++++++++++++++++++++++++++++++++
+create function countRecords()
+returns integer
+as
+$$
+declare tp integer; 
+begin
+tp=select count(*) from stud;
+return tp;
+end;
+$$ language plpgsql;
+ select countRecords()
+_______________________________________________
+create function details()
+returns table
+as
+   return (select * from stud)
+
+      
+select * from dbo.details()
++++++++++++++++++++++++++++++++++++++++++++++++
+gurpreetdbs=# create function details()
+gurpreetdbs-# returns setof stud
+gurpreetdbs-# as
+gurpreetdbs-# $$
+gurpreetdbs$# begin
+gurpreetdbs$# return query select * from stud;
+gurpreetdbs$# end;
+gurpreetdbs$# $$
+gurpreetdbs-# language plpgsql;
+CREATE FUNCTION
+gurpreetdbs=# select  * details();
+ERROR:  syntax error at or near "details"
+LINE 1: select  * details();
+                  ^
+gurpreetdbs=# select  * from details();
+ id |   name
+----+----------
+  1 | Gurpreet
+(1 row)
+________________________________________________
+create function search(@id integer)
+returns varchar(20)
+as
+  begin
+     declare @name varchar(10)
+	 select @name=name from stud where id=@id
+	 return @name
+  end
+
+  select dbo.search(101)
+
+  declare @n varchar(20)
+  set @n=dbo.search(101)
+  select @n
++++++++++++++++++++++++++++++++++++++++++++++++++++
+create function search1(id1 integer)
+returns varchar(20)
+as
+$$
+declare name varchar(10);
+  begin
+	 name=stud.name from stud where stud.id=id1;
+	 return name;
+  end;
+$$ language plpgsql;
+
+===================================================
+create or replace function search2(id1 integer)
+returns varchar(20)
+as
+$$
+declare name varchar(10);
+  begin
+	 name=(select stud.name from stud where stud.id=id1);
+	 return name;
+  end;
+$$ language plpgsql;
+===================================================
+create or replace function search2(id1 integer)
+returns varchar(20)
+as
+$$
+declare name1 varchar(10);
+  begin
+	 name1=(select name from stud where id=id1);
+	 return name1;
+  end;
+$$ language plpgsql;
+===================================================
+create or replace function search2(id1 integer)
+returns varchar(20)
+as
+$$
+declare n varchar(20);
+declare name1 varchar(10);
+  begin
+	 name1=(select name from stud where id=id1);
+	 return name1;
+	 n=search2(1);
+	select n;
+  end;
+$$ language plpgsql;
+  
+  
+
+____________________________________________________
+create proc myp
+@i integer
+AS
+   BEGIN
+
+       RETURN @i+5
+   END
+
+ declare @t integer
+ exec @t=myp 12
+ select @t
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    create proc myname
+   as
+    begin
+	  select 'i am sakshi gupta' 
+	end
+
+	exec myname
+__________________________________________________________

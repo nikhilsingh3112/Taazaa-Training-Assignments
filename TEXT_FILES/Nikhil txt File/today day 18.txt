@@ -1,0 +1,247 @@
+CREATE TABLE COMPANY(
+   ID INT PRIMARY KEY     NOT NULL,
+   NAME           TEXT    NOT NULL,
+   AGE            INT     NOT NULL,
+   ADDRESS        CHAR(50),
+   SALARY         REAL
+);
+
+CREATE TABLE AUDIT(
+   EMP_ID INT NOT NULL,
+   ENTRY_DATE TEXT NOT NULL
+);
+
+_________________________________________________________Syntax:-
+Create function <func-Name>() returns datatype
+as
+$body$
+begin
+return 
+end;
+$body$
+language plpgsql;
+
+__________
+CREATE FUNCTION auditlogfunc() RETURNS TRIGGER AS $example_table$
+   BEGIN
+      INSERT INTO AUDIT(EMP_ID, ENTRY_DATE) VALUES (new.ID, current_timestamp);
+      RETURN NEW;
+   END;
+$example_table$ LANGUAGE plpgsql;
+
+
+______________________________________
+
+CREATE  FUNCTION befo_insert()
+  RETURNS trigger AS
+$$
+BEGIN
+ NEW.NAME = UPPER(NEW.NAME);
+RETURN NEW;
+END;
+
+$$
+LANGUAGE 'plpgsql';
+
+CREATE TRIGGER che_val_befo_ins
+  BEFORE INSERT
+  ON company
+  FOR EACH ROW
+  EXECUTE PROCEDURE befo_insert();
+
+INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)  VALUES (2, 'deep', 22, 'California', 20000.00 );
+
+
+_____________________________________________________________________________________________________
+Server [localhost]:
+Database [postgres]:
+Port [5432]:
+Username [postgres]:
+Password for user postgres:
+psql (13.4)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# create database majordb;
+CREATE DATABASE
+postgres=# \c majordb;
+You are now connected to database "majordb" as user "postgres".
+majordb=# CREATE TABLE COMPANY(
+majordb(#    ID INT PRIMARY KEY     NOT NULL,
+majordb(#    NAME           TEXT    NOT NULL,
+majordb(#    AGE            INT     NOT NULL,
+majordb(#    ADDRESS        CHAR(50),
+majordb(#    SALARY         REAL
+majordb(# );
+CREATE TABLE
+majordb=# CREATE TABLE AUDIT(
+majordb(#    EMP_ID INT NOT NULL,
+majordb(#    ENTRY_DATE TEXT NOT NULL
+majordb(# );
+CREATE TABLE
+majordb=# CREATE  FUNCTION befo_insert()
+majordb-#   RETURNS trigger AS
+majordb-# $$
+majordb$# BEGIN
+majordb$#  NEW.NAME = UPPER(NEW.NAME);
+majordb$# RETURN NEW;
+majordb$# END;
+majordb$#
+majordb$# $$
+majordb-# LANGUAGE 'plpgsql';
+CREATE FUNCTION
+majordb=# CREATE TRIGGER che_val_befo_ins
+majordb-#   BEFORE INSERT
+majordb-#   ON company
+majordb-#   FOR EACH ROW
+majordb-#   EXECUTE PROCEDURE befo_insert();
+CREATE TRIGGER
+majordb=# \d company;
+                  Table "public.company"
+ Column  |     Type      | Collation | Nullable | Default
+---------+---------------+-----------+----------+---------
+ id      | integer       |           | not null |
+ name    | text          |           | not null |
+ age     | integer       |           | not null |
+ address | character(50) |           |          |
+ salary  | real          |           |          |
+Indexes:
+    "company_pkey" PRIMARY KEY, btree (id)
+Triggers:
+    che_val_befo_ins BEFORE INSERT ON company FOR EACH ROW EXECUTE FUNCTION befo_insert()
+
+
+majordb=# INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VALUES (1, 'deepa', 22, 'California', 20000.00 );
+INSERT 0 1
+majordb=# select * from company;
+ id | name  | age |                      address                       | salary
+----+-------+-----+----------------------------------------------------+--------
+  1 | DEEPA |  22 | California                                         |  20000
+(1 row)
+
+
+majordb=#'
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+===============================(Practice)=========================================================
+
+CREATE  FUNCTION befoInsertAge()
+  RETURNS trigger AS
+$$
+BEGIN
+ if NEW.age>18 then
+RETURN NEW;
+end if;
+END;
+
+$$
+LANGUAGE 'plpgsql';
+
+CREATE TRIGGER che_val_befo_ins_age
+  BEFORE INSERT
+  ON company
+  FOR EACH ROW
+  EXECUTE PROCEDURE befoInsertAge();
+
+INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)  VALUES (1, 'Gurpreet', 11, 'India', 20000.00 );
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+===================================================================================================
+majordb=# CREATE  FUNCTION befoInsertAge()
+majordb-#   RETURNS trigger AS
+majordb-# $$
+majordb$# BEGIN
+majordb$#  if NEW.age>18 then
+majordb$# RETURN NEW;
+majordb$# end if;
+majordb$# END;
+majordb$#
+majordb$# $$
+majordb-# LANGUAGE 'plpgsql';
+CREATE FUNCTION
+                                       
+majordb=# CREATE TRIGGER che_val_befo_ins_age
+majordb-#   BEFORE INSERT
+majordb-#   ON company
+majordb-#   FOR EACH ROW
+majordb-#   EXECUTE PROCEDURE befoInsertAge();
+CREATE TRIGGER
+
+majordb=# INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)  VALUES (1, 'Gurpreet', 11, 'India', 20000.00 );
+ERROR:  control reached end of trigger procedure without RETURN
+CONTEXT:  PL/pgSQL function befoinsertage()
+majordb=#
+
+majordb=# INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)  VALUES (3, 'Gurpreet', 21, 'India', 20000.00 );
+INSERT 0 1
+majordb=#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

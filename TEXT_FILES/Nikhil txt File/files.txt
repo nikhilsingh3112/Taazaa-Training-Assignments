@@ -1,0 +1,19 @@
+=============+ dotnetcore webapi +====================
+
+1) what is controller ?
+2) what appsetting.json file?
+3) what employeeservice.csproj ?
+4) what is program.cs ?
+5) what is startup.cs ?
+
+1)dotnet core webapi has given the controller just for the demo purpose and the controller name is weatherforcast controller and provided one get operation for accessing the data in browser
+
+2) controller is a class in dotnet core to make a endPoint(means url or route.)
+
+3) there are certain rules to make a endPoint.
+	a) class name
+	b) function prefix
+	c) route
+	d) ApiController
+	e)
+	

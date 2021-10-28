@@ -1,0 +1,740 @@
+31/08/2021
+Day-13(TPL,Procedure,Exception Handling(try,throw,catch,finalize),using dispose function)
+_____________________________________________________________________
+Major logical topics :-
+1) indexer
+2)threading implementation
+3)*** intoduction to TPL(31-08-2021 to 1-09-2021)
+______________________________________________________________________
+Agenda:-
+3 to 5:40 pm
+1)how to create user define function in database.(atleast 4 program needed)
+2)how to create indexing in database
+
+
+Major topic:-
+1) *** what is stored procedure and its working (atleast 6-7 programs)
+_________________________________________________________________________
+
+//______________________31/08/2021(Major topics)_______________________
+using System;
+
+namespace MajorLogicApplication
+{
+    public class Employee
+    {
+        private int empcode;
+        private string empName;
+        
+        
+        // creating wrapper for accessing the private variable (method 1)
+
+        public int employeeCode // wrapper for empcode
+                {
+                    get
+                    {
+                        return empcode;
+                    }
+                    set
+                    {
+                        empcode=value;
+                    }
+                }
+        public string employeeName // wrapper for empcode
+                {
+                    get
+                    {
+                        return empName;
+                    }
+                    set
+                    {
+                        empName=value;
+                    }
+                }
+
+    } 
+    class Program
+    {
+        public static void Main()
+        {
+           Employee employee=new Employee();
+           employee.employeeCode=101;//set
+           employee.employeeName="Gurpreet Singh";//set
+           
+           Console.WriteLine(employee.employeeCode);//get
+           Console.WriteLine(employee.employeeName);//get
+           // doing same task using indexer
+        }
+    }
+}
+
+_______________________________________________________________________________
+
+//______________________31/08/2021(Major topics)_______________________
+
+// ______________________________________program for indexer
+using System;
+
+namespace MajorLogicApplication
+{
+    public class Employee
+    {
+       private object[] data=new object[2];//variable name is data and done indexing with 2 subscript. eg:- data[o]=101;data[1]="Gurpreet";
+       
+       //indexer is refered by this keyword
+       
+       public object this[int i] //this refered to employee object
+       {
+           get
+           {
+              return data[i]; 
+           }
+           set
+           {
+               data[i]=value;
+           }
+       }
+    } 
+    class Program
+    {
+        public static void Main()
+        {
+           Employee employee=new Employee();
+           employee[0]=101; //set // data[0]=employee[0]; data[1]=employee[1];
+           employee[1]="Gurpreet Singh"; //set
+
+           Console.WriteLine(employee[0]+" "+employee[1]); //get
+           
+        }
+    }
+}
+____________________________________________________________________________________
+
+
+PSQL Class
+_____________________________________________________________________________________
+db_name:- ProjectDb
+
+table Membership
+3 columns:- UserName(varchar) Password(varchar) Age(int)
+
+using dml operation without using sql query from Db
+
+create function
+	returns integer
+	begin 
+		return 100;
+	end;
+
+so what is function?
+1)function is meant for perfoming task
+2)function has to return some value
+3)when function return some value then "returns" keyword is used
+4)the value that function is returing using returns keyword that value is known as return
+5)from one function you can call other function
+6)function doesnot supports transaction like insert,update, delete
+7)to connect function to table 
+
+create function xy()
+return table //table is type
+
+
+1) task
+2) function---> return vale
+3) Returns for the function 
+	return----> data
+4) one function can call another function
+5)*** function doesnot support DML support i.e. no transactional support
+
+Stored procedure:-
+1) PROCEDURE SUPPORT TRANCATION	
+
+function that take paramenter 2 and return noida;
+ 
+__________________________________________________________________________________
+projectdb=# create function uservalue(a integer) returns varchar(20) as $$
+projectdb$# begin
+projectdb$# if a=2 then
+projectdb$# return "noida";
+projectdb$# end if;
+projectdb$# end; $$
+projectdb-# LANGUAGE PLPGSQL;
+CREATE FUNCTION
+___________________________________________________________________________________
+
+PostgreSQL uses the CREATE FUNCTION statement to develop user-defined functions.
+
+Syntax: 
+CREATE FUNCTION function_name(p1 type, p2 type)
+ RETURNS type AS
+BEGIN
+ -- logic
+END;
+LANGUAGE language_name;
+Let’s analyze the above syntax:
+
+First, specify the name of the function after the CREATE FUNCTION keywords.
+Then, put a comma-separated list of parameters inside the parentheses following the function name.
+Next, specify the return type of the function after the RETURNS keyword.
+After that, place the code inside the BEGIN and END block. The function always ends with a semicolon (;) followed by the END keyword.
+Finally, indicate the procedural language of the function e.g., plpgsql in case PL/pgSQL is used.
+Example 1:
+
+In this example, we will develop a very simple function named inc that increases an integer by 1 and returns the result.
+
+First, launch pgAdmin and connect to the dvdrental sample database.
+
+
+
+Second, enter the following commands to create the inc function.
+
+CREATE FUNCTION inc(val integer) RETURNS integer AS $$
+BEGIN
+RETURN val + 1;
+END; $$
+LANGUAGE PLPGSQL;
+__________________________________________________________________________________
+rojectdb$# $$ Language plpgsql;
+ERROR:  syntax error at or near "begin"
+LINE 6: begin
+        ^
+projectdb=#
+projectdb=#
+projectdb=# create function getAge()
+projectdb-# returns integer
+projectdb-# as $$
+projectdb$# declare
+projectdb$# age integer=100;
+projectdb$# begin
+projectdb$# return age;
+projectdb$# end;
+projectdb$# $$ Language plpgsql;
+CREATE FUNCTION
+projectdb=# select getAge();
+ getage
+--------
+    100
+(1 row)
+
+
+projectdb=# /d;
+ERROR:  syntax error at or near "/"
+LINE 1: /d;
+        ^
+projectdb=# \d;
+invalid command \d;
+Try \? for help.
+projectdb=# select * from memberfunction;
+ERROR:  relation "memberfunction" does not exist
+LINE 1: select * from memberfunction;
+                      ^
+projectdb=# select * from membership;
+ username | password | age
+----------+----------+-----
+ Mike     | 12345    |  20
+ Albert   | 54321    |  28
+(2 rows)
+
+
+projectdb=#
+--_________---
+
+
+31/08/2021
+Day-13(TPL,Procedure,Exception Handling(try,throw,catch,finalize),using dispose function)
+_____________________________________________________________________
+Major logical topics :-
+1) indexer
+2)threading implementation
+3)*** intoduction to TPL(31-08-2021 to 1-09-2021)
+______________________________________________________________________
+Agenda:-
+3 to 5:40 pm
+1)how to create user define function in database.(atleast 4 program needed)
+2)how to create indexing in database
+
+
+Major topic:-
+1) *** what is stored procedure and its working (atleast 6-7 programs)
+_________________________________________________________________________
+
+//______________________31/08/2021(Major topics)_______________________
+using System;
+
+namespace MajorLogicApplication
+{
+    public class Employee
+    {
+        private int empcode;
+        private string empName;
+        
+        
+        // creating wrapper for accessing the private variable (method 1)
+
+        public int employeeCode // wrapper for empcode
+                {
+                    get
+                    {
+                        return empcode;
+                    }
+                    set
+                    {
+                        empcode=value;
+                    }
+                }
+        public string employeeName // wrapper for empcode
+                {
+                    get
+                    {
+                        return empName;
+                    }
+                    set
+                    {
+                        empName=value;
+                    }
+                }
+
+    } 
+    class Program
+    {
+        public static void Main()
+        {
+           Employee employee=new Employee();
+           employee.employeeCode=101;//set
+           employee.employeeName="Gurpreet Singh";//set
+           
+           Console.WriteLine(employee.employeeCode);//get
+           Console.WriteLine(employee.employeeName);//get
+           // doing same task using indexer
+        }
+    }
+}
+
+_______________________________________________________________________________
+
+//______________________31/08/2021(Major topics)_______________________
+
+// ______________________________________program for indexer
+using System;
+
+namespace MajorLogicApplication
+{
+    public class Employee
+    {
+       private object[] data=new object[2];//variable name is data and done indexing with 2 subscript. eg:- data[o]=101;data[1]="Gurpreet";
+       
+       //indexer is refered by this keyword
+       
+       public object this[int i] //this refered to employee object
+       {
+           get
+           {
+              return data[i]; 
+           }
+           set
+           {
+               data[i]=value;
+           }
+       }
+    } 
+    class Program
+    {
+        public static void Main()
+        {
+           Employee employee=new Employee();
+           employee[0]=101; //set // data[0]=employee[0]; data[1]=employee[1];
+           employee[1]="Gurpreet Singh"; //set
+
+           Console.WriteLine(employee[0]+" "+employee[1]); //get
+           
+        }
+    }
+}
+____________________________________________________________________________________
+
+
+PSQL Class
+_____________________________________________________________________________________
+db_name:- ProjectDb
+
+table Membership
+3 columns:- UserName(varchar) Password(varchar) Age(int)
+
+using dml operation without using sql query from Db
+
+create function
+	returns integer
+	begin 
+		return 100;
+	end;
+
+so what is function?
+1)function is meant for perfoming task
+2)function has to return some value
+3)when function return some value then "returns" keyword is used
+4)the value that function is returing using returns keyword that value is known as return
+5)from one function you can call other function
+6)function doesnot supports transaction like insert,update, delete
+7)to connect function to table 
+
+create function xy()
+return table //table is type
+
+
+1) task
+2) function---> return vale
+3) Returns for the function 
+	return----> data
+4) one function can call another function
+5)*** function doesnot support DML support i.e. no transactional support
+
+Stored procedure:-
+1) PROCEDURE SUPPORT TRANCATION	
+
+function that take paramenter 2 and return noida;
+ 
+__________________________________________________________________________________
+projectdb=# create function uservalue(a integer) returns varchar(20) as $$
+projectdb$# begin
+projectdb$# if a=2 then
+projectdb$# return "noida";
+projectdb$# end if;
+projectdb$# end; $$
+projectdb-# LANGUAGE PLPGSQL;
+CREATE FUNCTION
+___________________________________________________________________________________
+
+PostgreSQL uses the CREATE FUNCTION statement to develop user-defined functions.
+
+Syntax: 
+CREATE FUNCTION function_name(p1 type, p2 type)
+ RETURNS type AS
+BEGIN
+ -- logic
+END;
+LANGUAGE language_name;
+Let’s analyze the above syntax:
+
+First, specify the name of the function after the CREATE FUNCTION keywords.
+Then, put a comma-separated list of parameters inside the parentheses following the function name.
+Next, specify the return type of the function after the RETURNS keyword.
+After that, place the code inside the BEGIN and END block. The function always ends with a semicolon (;) followed by the END keyword.
+Finally, indicate the procedural language of the function e.g., plpgsql in case PL/pgSQL is used.
+Example 1:
+
+In this example, we will develop a very simple function named inc that increases an integer by 1 and returns the result.
+
+First, launch pgAdmin and connect to the dvdrental sample database.
+
+
+
+Second, enter the following commands to create the inc function.
+
+CREATE FUNCTION inc(val integer) RETURNS integer AS $$
+BEGIN
+RETURN val + 1;
+END; $$
+LANGUAGE PLPGSQL;
+__________________________________________________________________________________
+rojectdb$# $$ Language plpgsql;
+ERROR:  syntax error at or near "begin"
+LINE 6: begin
+        ^
+projectdb=#
+projectdb=#
+projectdb=# create function getAge()
+projectdb-# returns integer
+projectdb-# as $$
+projectdb$# declare
+projectdb$# age integer=100;
+projectdb$# begin
+projectdb$# return age;
+projectdb$# end;
+projectdb$# $$ Language plpgsql;
+CREATE FUNCTION
+projectdb=# select getAge();
+ getage
+--------
+    100
+(1 row)
+
+
+projectdb=# /d;
+ERROR:  syntax error at or near "/"
+LINE 1: /d;
+        ^
+projectdb=# \d;
+invalid command \d;
+Try \? for help.
+projectdb=# select * from memberfunction;
+ERROR:  relation "memberfunction" does not exist
+LINE 1: select * from memberfunction;
+                      ^
+projectdb=# select * from membership;
+ username | password | age
+----------+----------+-----
+ Mike     | 12345    |  20
+ Albert   | 54321    |  28
+(2 rows)
+
+
+projectdb=#
+--_________---
+
+
+
+
+
+
+31/08/2021
+Day-13(TPL,Procedure,Exception Handling(try,throw,catch,finalize),using dispose function)
+_____________________________________________________________________
+Major logical topics :-
+1) indexer
+2)threading implementation
+3)*** intoduction to TPL(31-08-2021 to 1-09-2021)
+______________________________________________________________________
+Agenda:-
+3 to 5:40 pm
+1)how to create user define function in database.(atleast 4 program needed)
+2)how to create indexing in database
+
+
+Major topic:-
+1) *** what is stored procedure and its working (atleast 6-7 programs)
+_________________________________________________________________________
+
+//______________________31/08/2021(Major topics)_______________________
+using System;
+
+namespace MajorLogicApplication
+{
+    public class Employee
+    {
+        private int empcode;
+        private string empName;
+        
+        
+        // creating wrapper for accessing the private variable (method 1)
+
+        public int employeeCode // wrapper for empcode
+                {
+                    get
+                    {
+                        return empcode;
+                    }
+                    set
+                    {
+                        empcode=value;
+                    }
+                }
+        public string employeeName // wrapper for empcode
+                {
+                    get
+                    {
+                        return empName;
+                    }
+                    set
+                    {
+                        empName=value;
+                    }
+                }
+
+    } 
+    class Program
+    {
+        public static void Main()
+        {
+           Employee employee=new Employee();
+           employee.employeeCode=101;//set
+           employee.employeeName="Gurpreet Singh";//set
+           
+           Console.WriteLine(employee.employeeCode);//get
+           Console.WriteLine(employee.employeeName);//get
+           // doing same task using indexer
+        }
+    }
+}
+
+_______________________________________________________________________________
+
+//______________________31/08/2021(Major topics)_______________________
+
+// ______________________________________program for indexer
+using System;
+
+namespace MajorLogicApplication
+{
+    public class Employee
+    {
+       private object[] data=new object[2];//variable name is data and done indexing with 2 subscript. eg:- data[o]=101;data[1]="Gurpreet";
+       
+       //indexer is refered by this keyword
+       
+       public object this[int i] //this refered to employee object
+       {
+           get
+           {
+              return data[i]; 
+           }
+           set
+           {
+               data[i]=value;
+           }
+       }
+    } 
+    class Program
+    {
+        public static void Main()
+        {
+           Employee employee=new Employee();
+           employee[0]=101; //set // data[0]=employee[0]; data[1]=employee[1];
+           employee[1]="Gurpreet Singh"; //set
+
+           Console.WriteLine(employee[0]+" "+employee[1]); //get
+           
+        }
+    }
+}
+____________________________________________________________________________________
+
+
+PSQL Class
+_____________________________________________________________________________________
+db_name:- ProjectDb
+
+table Membership
+3 columns:- UserName(varchar) Password(varchar) Age(int)
+
+using dml operation without using sql query from Db
+
+create function
+	returns integer
+	begin 
+		return 100;
+	end;
+
+so what is function?
+1)function is meant for perfoming task
+2)function has to return some value
+3)when function return some value then "returns" keyword is used
+4)the value that function is returing using returns keyword that value is known as return
+5)from one function you can call other function
+6)function doesnot supports transaction like insert,update, delete
+7)to connect function to table 
+
+create function xy()
+return table //table is type
+
+
+1) task
+2) function---> return vale
+3) Returns for the function 
+	return----> data
+4) one function can call another function
+5)*** function doesnot support DML support i.e. no transactional support
+
+Stored procedure:-
+1) PROCEDURE SUPPORT TRANCATION	
+
+function that take paramenter 2 and return noida;
+ 
+__________________________________________________________________________________
+projectdb=# create function uservalue(a integer) returns varchar(20) as $$
+projectdb$# begin
+projectdb$# if a=2 then
+projectdb$# return "noida";
+projectdb$# end if;
+projectdb$# end; $$
+projectdb-# LANGUAGE PLPGSQL;
+CREATE FUNCTION
+___________________________________________________________________________________
+
+PostgreSQL uses the CREATE FUNCTION statement to develop user-defined functions.
+
+Syntax: 
+CREATE FUNCTION function_name(p1 type, p2 type)
+ RETURNS type AS
+BEGIN
+ -- logic
+END;
+LANGUAGE language_name;
+Let’s analyze the above syntax:
+
+First, specify the name of the function after the CREATE FUNCTION keywords.
+Then, put a comma-separated list of parameters inside the parentheses following the function name.
+Next, specify the return type of the function after the RETURNS keyword.
+After that, place the code inside the BEGIN and END block. The function always ends with a semicolon (;) followed by the END keyword.
+Finally, indicate the procedural language of the function e.g., plpgsql in case PL/pgSQL is used.
+Example 1:
+
+In this example, we will develop a very simple function named inc that increases an integer by 1 and returns the result.
+
+First, launch pgAdmin and connect to the dvdrental sample database.
+
+
+
+Second, enter the following commands to create the inc function.
+
+CREATE FUNCTION inc(val integer) RETURNS integer AS $$
+BEGIN
+RETURN val + 1;
+END; $$
+LANGUAGE PLPGSQL;
+__________________________________________________________________________________
+rojectdb$# $$ Language plpgsql;
+ERROR:  syntax error at or near "begin"
+LINE 6: begin
+        ^
+projectdb=#
+projectdb=#
+projectdb=# create function getAge()
+projectdb-# returns integer
+projectdb-# as $$
+projectdb$# declare
+projectdb$# age integer=100;
+projectdb$# begin
+projectdb$# return age;
+projectdb$# end;
+projectdb$# $$ Language plpgsql;
+CREATE FUNCTION
+projectdb=# select getAge();
+ getage
+--------
+    100
+(1 row)
+
+
+projectdb=# /d;
+ERROR:  syntax error at or near "/"
+LINE 1: /d;
+        ^
+projectdb=# \d;
+invalid command \d;
+Try \? for help.
+projectdb=# select * from memberfunction;
+ERROR:  relation "memberfunction" does not exist
+LINE 1: select * from memberfunction;
+                      ^
+projectdb=# select * from membership;
+ username | password | age
+----------+----------+-----
+ Mike     | 12345    |  20
+ Albert   | 54321    |  28
+(2 rows)
+
+
+projectdb=#
+--_________---
+
+
+
+
+
+
+
+
+
+
+
+

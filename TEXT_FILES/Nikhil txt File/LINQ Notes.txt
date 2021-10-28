@@ -1,0 +1,335 @@
+___________________________________(Linq)__________________________________________
+
+Defination:-
+============
+LINQ (Language Integrated Query) is uniform query syntax in C# to retrieve data from different sources and formats. It is integrated in C#, thereby eliminating the mismatch between programming languages and databases, as well as providing a single querying interface for different types of data sources.
+____________________________________________________________________________________
+
+Why There is need of Linq ?
+
+===========================
+Before C# 2.0, we had to use a 'foreach' or a 'for' loop to traverse the collection to find a particular object.
+
+Use of for loop is cumbersome, not maintainable and readable. C# 2.0 introduced delegate,So, with C# 2.0, you got the advantage of delegate in finding students with any criteria. You don't have to use a for loop to find students using different criteria. 
+
+The C# team felt that they still needed to make the code even more compact and readable. So they introduced the extension method, lambda expression, expression tree, anonymous type and query expression in C# 3.0. You can use these features of C# 3.0, which are building blocks of LINQ to query to the different types of collection and get the resulted element(s) in a single statement.
+______________________________________________________________________________________
+
+for eg:-
+=========
+class Program
+{
+    static void Main(string[] args)
+    {
+        Student[] studentArray = { 
+                    new Student() { StudentID = 1, StudentName = "John", age = 18 } ,
+                    new Student() { StudentID = 2, StudentName = "Steve",  age = 21 } ,
+                    new Student() { StudentID = 3, StudentName = "Bill",  age = 25 } ,
+                    new Student() { StudentID = 4, StudentName = "Ram" , age = 20 } ,
+                    new Student() { StudentID = 5, StudentName = "Ron" , age = 31 } ,
+                    new Student() { StudentID = 6, StudentName = "Chris",  age = 17 } ,
+                    new Student() { StudentID = 7, StudentName = "Rob",age = 19  } ,
+                };
+
+        // Use LINQ to find teenager students
+        Student[] teenAgerStudents = studentArray.Where(s => s.age > 12 && s.age < 20).ToArray();
+       
+        // Use LINQ to find first student whose name is Bill 
+        Student bill = studentArray.Where(s => s.StudentName == "Bill").FirstOrDefault();
+        
+        // Use LINQ to find student whose StudentID is 5
+        Student student5 = studentArray.Where(s => s.StudentID == 5).FirstOrDefault();
+    }
+}
+__________________________________________________________________________________________________________
+As you can see in the above example
+====================================
+we specify different criteria using LINQ operator and lambda expression in a single statement. Thus, LINQ makes code more compact and readable and it can also be used to query different data sources. For example, if you have a student table in a database instead of an array of student objects as above, you can still use the same query to find students using the Entity Framework.
+___________________________________________________________________________________________________________
+
+Advantages of LINQ
+===================
+
+1)Familiar language:
+--------------------- 
+Developers don’t have to learn a new query language for each type of data source or data format.
+
+2)Less coding:
+-------------- 
+It reduces the amount of code to be written as compared with a more traditional approach.
+
+3)Readable code:
+---------------- 
+LINQ makes the code more readable so other developers can easily understand and maintain it.
+
+4)Standardized way of querying multiple data sources:
+-------------------------------------------------------
+ The same LINQ syntax can be used to query multiple data sources.
+
+5)Compile time safety of queries:
+---------------------------------- 
+It provides type checking of objects at compile time.
+
+6)IntelliSense Support:
+-----------------------
+LINQ provides IntelliSense for generic collections.
+
+7)Shaping data:
+----------------
+You can retrieve data in different shapes.
+____________________________________________________________________________________________________________
+
+LINQ API in .NET
+=================
+We can write LINQ queries for the classes that implement 
+
+1)IEnumerable<T> interface
+	or 
+2)IQueryable<T> interface. 
+
+The System.Linq namespace includes the following classes and interfaces require for LINQ queries.
+
+
+LINQ queries uses extension methods for classes that implement IEnumerable or IQueryable interface. The Enumerable and Queryable are two static classes that contain extension methods to write LINQ queries.
+
+___________________________________________________________________________________________________________
+
+LINQ Query Syntax
+===================
+
+There are two basic ways to write a LINQ query to IEnumerable collection or IQueryable data sources.
+
+1) Query Syntax or Query Expression Syntax---------------------  (Expression Method)
+2) Method Syntax or Method Extension Syntax or Fluent----------------  (Lamda Method)
+___________________________________________________________________________________________________________
+
+Query Method:-
+===============
+// string collection
+IList<string> stringList = new List<string>() { "C# Tutorials","VB.NET Tutorials","Learn C++","MVC Tutorials" ,"Java" };
+
+// LINQ Query Syntax
+var result = from s in stringList where s.Contains("Tutorials") select s;
+
+--------------------------------------------------------------------------------
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+public class Program
+{
+	public static void Main()
+	{
+		// string collection
+		IList<string> stringList = new List<string>() { 
+			"C# Tutorials",
+			"VB.NET Tutorials",
+			"Learn C++",
+			"MVC Tutorials" ,
+			"Java" 
+		};
+		
+		// LINQ Query Syntax
+		var result = from s in stringList
+					where s.Contains("Tutorials") 
+					select s;
+		
+		foreach (var str in result)
+		{
+			Console.WriteLine(str);
+		}
+	}
+}
+____________________________________________________________________________________________________________
+
+steps for linq query syntax writting
+-------------------------------------
+1)Query syntax starts with a From clause followed by a Range variable. The From clause is structured like "From rangeVariableName in IEnumerablecollection". In English, this means, from each object in the collection. It is similar to a foreach loop: foreach(Student s in studentList).
+
+2)After the From clause, you can use different Standard Query Operators to filter, group, join elements of the collection. There are around 50 Standard Query Operators available in LINQ. In the above figure, we have used "where" operator (aka clause) followed by a condition. This condition is generally expressed using lambda expression.
+
+3)LINQ query syntax always ends with a Select or Group clause. The Select clause is used to shape the data. You can select the whole object as it is or only some properties of it. In the above example, we selected the each resulted string elements.
+_____________________________________________________________________________________________________________
+
+some Examples for Query Expression method
+==========================================
+1)
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+					
+public class Program
+{
+	public static void Main()
+	{
+		// Student collection
+		IList<Student> studentList = new List<Student>() { 
+				new Student() { StudentID = 1, StudentName = "John", Age = 13} ,
+				new Student() { StudentID = 2, StudentName = "Moin",  Age = 21 } ,
+				new Student() { StudentID = 3, StudentName = "Bill",  Age = 18 } ,
+				new Student() { StudentID = 4, StudentName = "Ram" , Age = 20} ,
+				new Student() { StudentID = 5, StudentName = "Ron" , Age = 15 } 
+			};
+		
+		// LINQ Query Syntax to find out teenager students
+		var teenAgerStudent = from s in studentList
+							  where s.Age > 12 && s.Age < 20
+							  select s;
+		Console.WriteLine("Teen age Students:");
+						  
+		foreach(Student std in teenAgerStudent){			
+			Console.WriteLine(std.StudentName);
+		}
+	}
+}
+
+public class Student{
+
+	public int StudentID { get; set; }
+	public string StudentName { get; set; }
+	public int Age { get; set; }
+	
+}
+___________________________________________________________________________________________________________
+Note:-
+=======
+
+1)As name suggest, Query Syntax is same like SQL (Structure Query Language) syntax.
+2)Query Syntax starts with from clause and can be end with Select or GroupBy clause.
+3)Use various other opertors like filtering, joining, grouping, sorting operators to construct the desired result.
+4)Implicitly typed variable - var can be used to hold the result of the LINQ query.
+____________________________________________________________________________________________________________
+
+LINQ Method Syntax (Lamda Method)
+===================
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+					
+public class Program
+{
+	public static void Main()
+	{
+		// string collection
+		IList<string> stringList = new List<string>() { 
+			"C# Tutorials",
+			"VB.NET Tutorials",
+			"Learn C++",
+			"MVC Tutorials" ,
+			"Java" 
+		};
+		
+		// LINQ Method Syntax
+		var result = stringList.Where(s => s.Contains("Tutorials"));
+					
+		
+		foreach (var str in result)
+		{
+			Console.WriteLine(str);
+		}
+	}
+}
+________________________________________________________________________________________________
+ 
+Standard Query Operators
+========================
+
+Classification	      |	Standard Query Operators
+---------------------------------------------------
+Filtering	      |	Where, OfType
+		      |
+Sorting		      |	OrderBy, OrderByDescending, ThenBy, ThenByDescending, Reverse
+                      |
+Grouping	      |	GroupBy, ToLookup
+                      |
+Join		      |	GroupJoin, Join
+		      |
+Projection	      |	Select, SelectMany
+		      |
+Aggregation	      |	Aggregate, Average, Count, LongCount, Max, Min, Sum
+		      |
+Quantifiers	      |	All, Any, Contains
+		      |
+Elements	      |	ElementAt, ElementAtOrDefault, First, FirstOrDefault, Last, LastOrDefault, 						      |	Single,SingleOrDefault
+		      |
+Set		      |	Distinct, Except, Intersect, Union
+		      |
+Partitioning	      |	Skip, SkipWhile, Take, TakeWhile
+		      |
+Concatenation	      |	Concat
+		      |
+Equality	      |	SequenceEqual
+		      |
+Generation	      |	DefaultEmpty, Empty, Range, Repeat
+		      |
+Conversion	      |	AsEnumerable, AsQueryable, Cast, ToArray, ToDictionary, ToList
+
+______________________________________________________________________________________________________________
+1) Filtering
+=============
+Filtering operators in LINQ filter the sequence (collection) based on some given criteria.
+
+The following table lists all the filtering operators available in LINQ.
+
+Filtering Operators	|	Description
+--------------------------------------------------------------
+	Where		|Returns values from the collection based on a predicate function.
+			|
+	OfType		|Returns values from the collection based on a specified type. However, it will depend on their 				|ability to cast to a specified type.
+-----------------------------------------------------------------	
+1.1) Where
+===========
+The Where operator (Linq extension method) filters the collection based on a given criteria expression and returns a new collection. The criteria can be specified as lambda expression
+
+# By Lamda method:-
+---------------------
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+					
+public class Program
+{
+	public static void Main()
+	{
+		// Student collection
+		IList<Student> studentList = new List<Student>() { 
+				new Student() { StudentID = 1, StudentName = "John", Age = 13} ,
+				new Student() { StudentID = 2, StudentName = "Moin",  Age = 21 } ,
+				new Student() { StudentID = 3, StudentName = "Bill",  Age = 18 } ,
+				new Student() { StudentID = 4, StudentName = "Ram" , Age = 20} ,
+				new Student() { StudentID = 5, StudentName = "Ron" , Age = 15 } 
+			};
+		
+		// LINQ Query Method to find out teenager students
+		var teenAgerStudent = studentList.Where(s => s.Age > 12 && s.Age < 20);
+							  
+		Console.WriteLine("Teen age Students:");
+						  
+		foreach(Student std in teenAgerStudent){			
+			Console.WriteLine(std.StudentName);
+		}
+	}
+}
+
+public class Student{
+
+	public int StudentID { get; set; }
+	public string StudentName { get; set; }
+	public int Age { get; set; }
+	
+}
+
+
+
+2)Sorting:-
+sorting and ordering the data according to our requirement
+3)Projection:-
+to display the data like select command in  linq
+
+4)Aggregation:-
+The aggregation operators perform mathematical operations like Average, Aggregate, Count, Max, Min and Sum, on the numeric property of the elements in the collection.
+5)Concatenation:-
+The Concat() method appends two sequences of the same type and returns a new sequence (collection).

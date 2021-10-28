@@ -1,0 +1,80 @@
+Create function userValidate(username varchar,password varchar)
+returns integer
+as $$
+declare 
+begin
+if (select ) then
+return 1;
+else
+return 0;
+end if;	
+end;
+$$ language plpgsql;
+
+________________________________________
+postgres=# create database taazaadbs;
+CREATE DATABASE
+postgres=# \c taazaadbs;
+You are now connected to database "taazaadbs" as user "postgres".
+taazaadbs=# create table tbl_Users
+taazaadbs-# (
+taazaadbs(# username character varying(50) not null primary key,
+taazaadbs(# password character varying(30) not null);
+CREATE TABLE
+taazaadbs=#
+
+___________________________________________
+taazaadbs=# select * from tbl_Users;
+ username | password
+----------+----------
+(0 rows)
+_)_______________________________________
+taazaadbs=# insert into tbl_users values('Gurpreet','pass1');
+INSERT 0 1
+taazaadbs=# insert into tbl_users values('Mickey','pass2');
+INSERT 0 1
+taazaadbs=# select * from tbl_Users;
+ username | password
+----------+----------
+ Gurpreet | pass1
+ Mickey   | pass2
+(2 rows)
+_______________________________________________________
+
+create function userValidate(u character varying,upass character varying)
+returns integer
+as
+$$
+begin
+if (select count(*) from tbl_users where username=u and password=upass)>0 then
+return 1;
+else
+return 0;
+end if;
+end ;
+$$
+language plpgsql;
+CREATE FUNCTION
+usermanagement=#
+_________________________________________________________________________________________________________
+taazaadbs=# create function userValidate(u character varying,upass character varying)
+taazaadbs-# returns integer
+taazaadbs-# as
+taazaadbs-# $$
+taazaadbs$# begin
+taazaadbs$# if (select count(*) from tbl_users where username=u and password=upass)>0 then
+taazaadbs$# return 1;
+taazaadbs$# else
+taazaadbs$# return 0;
+taazaadbs$# end if;
+taazaadbs$# end ;
+taazaadbs$# $$
+taazaadbs-# language plpgsql;
+CREATE FUNCTION
+taazaadbs=#
+taazaadbs=# select userValidate('Mickey','pass2');
+ uservalidate
+--------------
+            1
+(1 row)
+

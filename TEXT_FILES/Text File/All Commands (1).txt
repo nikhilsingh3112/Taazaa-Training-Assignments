@@ -1,0 +1,98 @@
+using System.Threading.Tasks;
+dotnet tool install --global dotnet-ef
+dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkcore.tools
+dotnet add package Microsoft.EntityFrameworkcore.design
+dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
+dotnet add package Npgsql.EntityFrameworkCore.tools
+dotnet add package Npgsql.EntityFrameworkCore.Design
+dotnet ef migrations add phase1
+dotnet ef database update
+
+******************************************************************************************************************************************************************************
+UserMap
+  using Microsoft.EntityFrameworkCore.Metadata.Builders;
+  public MovieMap(EntityTypeBuilder<Movie> movies)
+           {
+           movies.HasKey(t=>t.MovieId);
+           movies.Property(t => t.MovieName).HasMaxLength(30).IsRequired();
+           movies.Property(t=>t.Age).HasMaxLength(3).IsRequired();
+           }
+
+*****************************************************************************************************************************************************************************
+
+dotnet ef dbContext Scaffold "Host=localhost;Port=5432;User ID=postgres;Password=3238;Database=Usersdb;Pooling=true;" Npgsql.EntityFrameworkCore.PostgreSQL -o Models
+
+******************************************************************************************************************************************************************************
+ services.AddDbContext<ApplicationDbContext>(t=>t.UseNpgsql(Configuration.GetConnectionString("PostgreSqlConnectionString")));   
+
+******************************************************************************************************************************************************************************
+
+
+*******************************************************Connection String******************************************************************************************************
+
+"ConnectionStrings": {    
+"PostgreSqlConnectionString": "Host=localhost;Port=5432;User ID=postgres;Password=1234;Database=MovieMgmt;Pooling=true;"
+
+******************************************************************************************************************************************************************************
+DbContext
+ using Microsoft.EntityFrameworkCore;
+ public DbSet<Contact> contacts{get;set;}
+        public ContactsDbContext(DbContextOptions options): base(options)
+        {
+            
+        }
+ protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //Linking Between User(Model) and UserMap(Mapper)
+             new MovieMap(modelBuilder.Entity<Movie>());
+            
+        }
+
+******************************************************************************************************************************************************************************
+entityTypeBuilder.HasOne(   t => t.userProfile).WithOne(t => t.user).HasForeignKey<UserProfile>( t=> t.Id );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+User userEntity = userService.GetUser(model.Id);
+            userEntity.Email = model.Email;
+            userEntity.ModifiedDate = DateTime.UtcNow;
+            userEntity.IPAddress = Request.HttpContext.Connection.RemoteIpAddress.ToString();
+            UserProfile userProfileEntity = userProfileService.GetUserProfile(model.Id);
+            userProfileEntity.FirstName = model.FirstName;
+            userProfileEntity.LastName = model.LastName;
+            userProfileEntity.Address = model.Address;
+            userProfileEntity.ModifiedDate = DateTime.UtcNow;
+            userProfileEntity.IPAddress = Request.HttpContext.Connection.RemoteIpAddress.ToString();
+            userEntity.userProfile = userProfileEntity;
+            userService.UpdateUser(userEntity);
+
+
+
+
+
+services.AddDbContext<UserDbContext>(ctr=>ctr.UseNpgsql(Configuration.GetConnectionString("PostgreSqlConnectionString")));
+            services.AddTransient<IUserRepository, UserRepository>();
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,174 @@
+Paging 
+Searching
+
+
+<input type="text" [(ngModel)]="BookSearchData"/>
+
+"bookid": 1,
+    "isbn": "123",
+    "title": "InvisibleMan",
+    "author": "JK Rawline",
+    "description": "Story of invisible man",
+    "password": "123456",
+    "publisher": "NIKS",
+    "price": 2000
+
+
+=====================
+<input type="text" [(ngModel)]="id">
+<input type="button" value="SearchBook" (click)="SearchBook(id)"/>
+
+
+<div class="container py-5">  
+    <h3 class="text-center text-uppercase">List of Books</h3>  
+    <table class="table table-bordered table-striped">  
+        <thead>  
+            <tr class="text-center text-uppercase">  
+                <th>Bookid</th>  
+                <th>Title</th>  
+                <th>Author </th>  
+                <th>Description </th>  
+                <th>Publisher</th>  
+                <th>Price</th>  
+            </tr>  
+        </thead>  
+        <tbody>  
+          <!-- <tr *ngFor="let bs of  BookSearchData">   -->
+            <div *ngIf="id">
+              <table>
+                 <tr>
+                   <th>Name</th>
+                   <th>Email</th>
+                 </tr>
+                 <tr>
+                   <td>{{id.bookid}}</td>
+                   <td>{{id.isbn }}</td>
+                   <td>{{id.title}}</td>
+                   <td>{{id.author }}</td>
+                   <td>{{id.description}}</td>
+                 </tr>
+              </table>
+            </div>
+===================================================================================================
+
+
+
+import { Component, OnInit } from '@angular/core';
+import { UserServiceService } from '../Service/user-service.service';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
+})
+export class HomeComponent  {
+
+  Book:any=[];
+  id: any=[];
+  constructor(private userService:UserServiceService)
+  {
+    this.userService.GetBookDetails().subscribe(book=>
+      {   
+        this.Book=book;
+        console.log(this.Book);
+      },
+      err=>
+      {
+        console.log(err);
+       
+      });  
+  }
+      SearchBook(id:any)
+      {
+        this.userService.SearchBookById(id).subscribe(response =>
+          {
+            this.id = response;
+            console.log(this.id);
+          },
+          err => 
+          {
+            console.log(err);
+          });
+      }
+  
+
+  // ngOnInit() 
+  // {
+  //   this.userService.GetBookDetails().subscribe(book=>
+  //     {   
+  //       this.Book=book;
+  //       console.log(this.Book);
+  //     },
+  //     err=>
+  //     {
+  //       console.log(err);
+       
+  //     });  
+  // }
+}
+
+
+
+=====================================================================================
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+import {HttpResponse ,HttpHeaders} from '@angular/common/http';
+
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserServiceService {
+
+   ServiceEndPointR: any ='http://localhost:5000/api/Auth/register';
+   ServiceEndPointL: any ='http://localhost:5000/api/Auth/login';
+   BookEndPoint:any='http://localhost:5000/api/Book';
+   BookSearch:any='http://localhost:5000/api/Book/';
+
+  constructor(private httpClient:HttpClient)
+  {
+
+  }
+
+  CreateAccount(reg:any)  //:Observable<any>
+  {// If a Fucnction return type is observable it means to access the data from this fumtion 
+    //or to give the data to function we have to subscribe.
+
+    return this.httpClient.post(this.ServiceEndPointR,reg);
+  }
+
+  LoginAccount(login:any)  //:Observable<any>
+  {// If a Fucnction return type is observable it means to access the data from this fumtion 
+    //or to give the data to function we have to subscribe.
+
+    return this.httpClient.post(this.ServiceEndPointL,login);
+  }
+  GetBookDetails()
+  {
+    var x:any;
+    x = sessionStorage.getItem('Token');
+
+    var headers_object = new HttpHeaders({
+      'Content-Type': 'application/json',
+       'Authorization': "Bearer "+x
+    });
+
+        const httpOptions = {
+          headers: headers_object
+        };
+    //console.log(x);
+    return this.httpClient.get(this.BookEndPoint,httpOptions);
+  }
+
+  loggedIn()
+  {
+  return sessionStorage.getItem('Token');
+  }
+
+  SearchBookById(id:any)
+  {
+    return this.httpClient.get("http://localhost:5000/api/Book/"+id);
+  }
+}

@@ -1,0 +1,20 @@
+create function getDetails()
+RETURNS TABLE 
+as $$
+	begin
+		return (select * from membership);
+	end;
+$$ Language plpgsql;
+
+create function getDetails()
+as $$
+		select * from membership;
+$$ Language plpgsql;
+___________________________________________________________________________________
+CREATE FUNCTION getDetailss() RETURNS SETOF membership AS $$
+    SELECT * FROM membership;
+$$ LANGUAGE sql;
+____________________________________________________________________________________
+____________________Assignment_______________________
+1)create function in which you pass username as a parameter it will return password
+2)create function return no. of records in a table

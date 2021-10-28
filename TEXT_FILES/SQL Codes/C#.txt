@@ -1,0 +1,301 @@
+                                                                                                                                                                                           DAY 1
+
+Introduction to C#
+
+C#-->1)Product of Microsoft.
+          2)Open Source.
+          3)Roslyn-Compiler to compile the program.
+          4)It is 90% close to java.
+
+
+*Roslyn is a compiler for c# in .Net Core.
+Major part in .Net core is WebApi.
+
+Dotnet Build- Command to compile the program.
+Dotnet run- Command to run the program.
+
+Namespace- Collection of Classes.
+                  -Meant to avoid the ambiguity.
+//using is a keyword to include the namespace.
+
+
+Ambiguity-Multiple classes having same name in different library.
+**In a single project we can have multiple library.
+
+
+                                                                                                                                                                                        DAY2
+
+Class- It is a way of organizing information about a type of data so a programmer can reuse element when making multiple instances of that data type.
+Class is a keyword to create user defined data type.
+Within a class, we can have multiple kind of variables.
+
+
+Object- When we create an object, it automatically inherits from an object class.
+
+
+Stack memory- It only allows elements of fixed size. Execution of function takes place in stack memory.
+
+
+Variable in C#
+1)Instance Variable
+2)Instance Rad Only Variable
+3)Static Variable-is a kind of variable which makes single copy and commom to all the belongings.
+4)Static read only Variable
+
+Initialize Variable in c#:
+
+1)How to initialize Instance variable:
+  a)using object .
+  b)using method
+  c)using Constructor
+  d)using Properties
+
+2)how to initialize Instance read only variable:
+  a)using constructor.
+
+3)How to initialize static variable:
+    a)using class name
+    b)using method
+    c)using Constructor
+    d)using Properties
+
+4)How to initialize static read only variable:
+  a)Static Constructor
+
+**Instance variable makes a seperate copy for each block.
+**Static variable is a kind of variable which makes a single copy and common to all the belongings thats why it is accessed by class name and not by object name.
+
+
+***If we dont allocate the memory of a class, the constryctor will not be called.
+
+
+
+
+
+                                                                                                                                                                                      DAY 3
+
+There are two types of aliasing :
+
+1) Var
+2) Dynamic
+
+1) Var:-
+            i).Declaration and initialization is must. Cannot declare var in class scope, only in function scope, within a function itself.
+            ii).Cannot change the type.
+            iii).Only value can be changed.
+            iv).Early Binding
+
+ Ex:-    var x=10;-- declaration and initialization is must.
+            x = "Ganesh".-------> X  --> cannot change the type.
+            
+
+2) Dyanamic:
+i).Type can be changed.
+ii).Value can be changed
+iii).Can be initialized in class scope.
+iv).Can be initialized in function parameter.
+v). Can be declared inside a function.
+
+Ex:-    var x=10;-- declaration and initialization is must.
+            x = "Ganesh".---->can change the type.
+            
+
+** In case of multiple returns, the first return is considered.
+
+
+**Same class- "this" keyword.
+**Different class-"base" keyword.
+
+Out is a keyword used for returning multiple values from function.
+
+Function Overloading- Provides multiple options for the same work.
+
+Object-
+It can store any kind of value becase the object is the base class of all type.
+Need to cast object variable to original type to use it and performing desired operations. 
+
+----------------------------------------------------------------------------------------------------------------------------------------(DAY4)---------------------------------------------------------------------------------------------------------------------------
+
+
+1)What is enum ?
+While programming we use few data which are contant which we use most often 
+so we store it in enum and can use it accordingly.
+
+Syntax :
+enum nameofenum {const,const,const,...}
+Const can be int ,float,double etc
+Here indexing start from 0 to n
+If we change the first index the other will follow automatically
+Ex- {const=1,const,const,...}
+Then the next will be 2 and next 3 and so on.
+
+
+2)Abstract class?
+
+An abstract class is a class that is declared abstract it may or may not include 
+abstract methods. Abstract classes cannot be instantiated (to create an instance of),
+but they can be subclassed.
+
+3)Interface?
+It is like abstract class because all the methods which are declared inside the interface 
+are abstract methods.but the difference is that we don’t use abstract keyword before class
+it by default abstract no need for abstract keyword. Here for a class to inherit from 
+interface it donot need to be sub class of that class and no need to write override keyword
+as well unlike we use in abstract class.
+
+
+Constructor- is automatically called when we create objet.
+Constructor name is same as class name .
+Constructor does not return anything.
+Constructor is used to initialize the variable.
+
+Object Format:
+class_name  Object_name = new class_ name.
+
+value type:
+1)value type are fixed type.
+2)value type are stored in stack.
+The following data types are all of value type:
+bool,byte,char,decimal,double,enum,float,int,long,sbyte,short,struct,uint,ulong,ushort.
+
+
+Reference type:
+1)Reference type are Pointer type
+2)Reference type are stored in heap.
+The following data types are all of reference  type:
+Class,Object,Delegate,Interface,String.
+
+
+Boxing:
+1)A boxing conversion permits any value-type to be implicitly converted to the type object or to any interface-type implemented by the value-type. Boxing a value of a value-type consists of allocating an object instance and copying the value-type value into that instance.
+
+Unboxing:
+1)An unboxing conversion permits an explicit conversion from type object to any value-type or from any interface-type to any value-type that implements the interface-type. An unboxing operation consists of first checking that the object instance is a boxed value of the given value-type, and then copying the value out of the instance.
+
+ 
+Interface:
+1)When a function is common in multiple classes then that function that function should be declared inside the interface
+2)If a class is implementing interface then it must implement all the function in Interface.
+3)Interface is meant for making the rules for the classes.
+4)By the interface we make the class consistent.
+5)Within an interface we can have fn declaration and the fn is abstract.
+In interface whenever we declare a fn, it is by default abstract,
+
+
+
+
+                                                                                                                                                                                           ( DAY5)
+1)Properties- is a technique by which we can achieve encapsulation.
+By prop. we can access the  private variables of a class outside the class.
+
+**get and Set is an accessor.
+
+Using get:- retrieve the value
+Using set- assign the value
+
+
+C# Scopes
+Public
+Private 
+Protected
+Internal
+
+
+ 
+2)Indexer
+3)Delegate
+Is a way to achieve Encapsulation.
+When you want high end of encapsulation, make object of delegates.
+We decide in delegate object , what to see..
+
+4)Anonymus method
+5)lembda expression
+
+
+
+
+
+
+                                                                                                                                                                                               DAY 6
+
+Generics- The purpose of generics is to avoid boxing and unboxing.
+< > Angular bracket --> Generics
+
+
+
+
+
+Static constructor is a special type of constructor. 
+1. We cannot pass parameter.
+2. We cannot define the scope like access modifier before the static constructor.
+3. Static constructor is so special kind of constructor which runs before the main function.
+4. We can initialize the static variable and static read only variable. But Static constructor is mainly meant for initializing the static read only variable. 
+
+
+1. What is Static Function??
+Ans.Static function is a kind of function we can call by the class name. The purpose of declaring the function as a static, if a function returns a value and common for everyone or belongings of that class.
+Example:
+If a function returns  a company address, it means whomsoever who will call this function will get the same value.
+
+
+3.What is Member Function??
+Ans. Member Function is a kind of function we can call by the object name.
+The purpose of making a member function, the output the function will differ from object to object.
+
+
+
+
+
+
+
+DAY7)
+
+1)What is Delegate?
+2)Why Delegate is needed?
+3)Architecture of delegate
+4)Anonymous Method---- Simplifying the delegate process
+   lambda- Eliminating the delegate keyword & writing the "=>".
+5)event
+6)Callback
+
+
+
+                                                                                                                                               Day11(m F of object class,Contructor,Destructor,PolyMorphism,static polymorphism)
+
+
+
+1)object --- Root/Base Class ----implicitily
+
+Member function of object class
+
+1)memberwiseclone()
+2)tostring()
+3)GetHashcode()
+4)Finalize() =>is a function which act as destructor but nor  a destructor (Supports Garbage collection ) ????     //plays major role
+
+2)Compiler provides two things for your class automatically-
+
+1) implicit Default Contructor- when u allocate the memory of the class the constructor is called.
+2) implicit Destructor - When you loose the scope of the program(main Function) destructor will be called.
+
+**Role Of Destructor -Deallocate/Clean the Resources ../Memory(cleanUp)
+
+**by dispose we acieve - explicit garbage collection(called during the program) 
+**by finalize we achieve - implicit garbage collection(not called during the program)
+
+3) Polymorphism - It is a mechanism Which enhance the capabilities of an object , so that same object can behave differentily in different situations.
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                                                                                                            
+

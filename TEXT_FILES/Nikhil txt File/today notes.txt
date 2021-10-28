@@ -1,0 +1,22 @@
+Microsoft Windows [Version 10.0.19042.1165]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\lenovo>cd desktop
+
+C:\Users\lenovo\Desktop>md dotnetcoreWebAPI
+
+C:\Users\lenovo\Desktop>cd dotnetcoreWebAPI
+
+C:\Users\lenovo\Desktop\dotnetcoreWebAPI>dotnet new webapi --name EmployeeService
+The template "ASP.NET Core Web API" was created successfully.
+
+Processing post-creation actions...
+Running 'dotnet restore' on EmployeeService\EmployeeService.csproj...
+  Determining projects to restore...
+  Restored C:\Users\lenovo\Desktop\dotnetcoreWebAPI\EmployeeService\EmployeeService.csproj (in 5.47 sec).
+Restore succeeded.
+
+
+C:\Users\lenovo\Desktop\dotnetcoreWebAPI>cd EmployeeService
+
+C:\Users\lenovo\Desktop\dotnetcoreWebAPI\EmployeeService>

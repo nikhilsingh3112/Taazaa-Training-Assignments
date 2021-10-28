@@ -1,0 +1,11 @@
+What is file Handling: 
+1)when we design application and if exception (Logical error) Comes,
+then we have to maintain the log for that exception. 
+2) It means we have to create the file to maintain the log(cause of exception)
+3) In Dotnet we have the namespace  a "System.IO" which consist of several classes to create a file and write on to file
+   and perform several manipulations
+4) "try ,throw ,catch" plays a major role for handling the exception.
+5) we write a code in "try block" and if any exception comes, CLR internally uses the keyword called throw and 
+   throw find suitable catch to handle the exception.
+
+C:\Day8T1\training.txt

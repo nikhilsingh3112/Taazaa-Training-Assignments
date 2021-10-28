@@ -1,0 +1,50 @@
+######################Today works:-#########################
+
+
+//_________________________(1-09-2021) Threading program
+
+
+using System;
+using System.Threading;
+
+namespace day14
+{
+         class MyWork
+         {
+             public void work1()
+             {
+                 Thread.Sleep(7000); //7000 is milli-Second henece this function will take 7 second to perform the task
+                // thread means it provides the execution to the program...
+                //or we can say thread is a execution model of the program
+                 Console.WriteLine("I am doing for work1  ");
+             }
+             public void Work2()
+             {
+                 Console.WriteLine("I am doing for work2");
+             }
+            public static void Main()
+            {
+                MyWork myWork=new MyWork();
+                myWork.work1();// calling first function
+                // at this point we are invoking the first function is called work1
+                myWork.Work2();// calling second function
+                // at this point we are invoking the Second function is called work2
+            }
+        }
+}
+
+output:-
+PS C:\Users\lenovo\Desktop\day14> dotnet run
+I am doing for work1  
+I am doing for work2
+PS C:\Users\lenovo\Desktop\day14> 
+ 
+
+note ;- the waiting of the 7 second and then second function will execute afyter first program execution is called synchornous function
+
+the program which we have written earlier is just synchoronous programming...
+i.e. one after one in sequence
+so,we can convert synchronous to asynchronous by two ways 
+1) multithreading
+2) TPL(Task Parallel Work Library)
+

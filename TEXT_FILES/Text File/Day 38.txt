@@ -1,0 +1,6 @@
+https://scotch.io/tutorials/angular-2-form-validation
+
+Form Control is a binding process between control and schema.
+
+
+

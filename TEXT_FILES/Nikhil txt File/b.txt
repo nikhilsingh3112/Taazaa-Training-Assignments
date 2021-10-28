@@ -1,0 +1,376 @@
+Why we use joins?
+Whenever we want to get records from two or more tables, we will execute the joins commands.
+
+
+
+Types of Joins
+•         Inner Join
+The PostgreSQL Inner Join is used to return only those records from the tables, which are equivalent to the defined condition and hides other rows and columns. In PostgreSQL, it as a default Join, therefore it is not compulsory to use the Inner Join keyword with the query.
+
+
+day9=# select * from student;
+ rollno |  name  |    phno    | age |          fees           | gender | date_of_admission |    dob     | time_of_admission |      faxno
+--------+--------+------------+-----+-------------------------+--------+-------------------+------------+-------------------+-----------------
+      1 | Mickey | 9717983635 |  22 |                  100.25 | M      | 2021-08-25        | 1949-09-12 | 16:57:28.041703   |
+      2 | donal  | 9733983635 |  32 |                  200.25 | M      | 2021-08-25        | 1939-09-12 | 16:59:25.139492   |
+      3 | emma   | 9227983635 |  22 |                  100.25 | F      | 2021-08-25        | 1949-12-12 | 17:00:06.541854   |
+      4 | emma   | 9227983635 |  22 | 10050000000000000000.89 | F      | 2021-08-25        | 1949-12-12 | 17:21:07.439436   |
+      5 | emma   | 9227983635 |  22 | 10050000000000000000.89 | F      | 2021-08-25        | 1949-12-12 | 17:23:57.308004   |
+      6 | emma   | 9227983635 |  22 | 10050000000000000000.89 | F      | 2021-08-25        | 1949-12-12 | 17:56:11.614468   | {9826373,74348}
+(6 rows)
+
+
+day9=# select * from department;
+ dptid | dptname | rollno |    doj     |       toj
+-------+---------+--------+------------+-----------------
+     1 | CSE     |      1 | 2021-08-26 | 15:19:14.604238
+     2 | IT      |      2 | 2021-08-26 | 15:19:24.54582
+     3 | ECE     |      3 | 2021-08-26 | 15:19:35.171661
+     4 | AI      |      4 | 2021-08-26 | 15:19:43.955417
+     5 | DS      |      5 | 2021-08-26 | 15:19:52.605976
+     6 | EEE     |      6 | 2021-08-26 | 15:20:03.292247
+     7 | ME      |      7 | 2021-08-26 | 15:20:17.471548
+(7 rows)
+
+
+day9=# select * from student inner join department on student.rollno=department.rollno;
+ rollno |  name  |    phno    | age |          fees           | gender | date_of_admission |    dob     | time_of_admission |      faxno      | dptid | dptname | rollno |    doj     |       toj
+--------+--------+------------+-----+-------------------------+--------+-------------------+------------+-------------------+-----------------+-------+---------+--------+------------+-----------------
+      1 | Mickey | 9717983635 |  22 |                  100.25 | M      | 2021-08-25        | 1949-09-12 | 16:57:28.041703   |                 |     1 | CSE     |      1 | 2021-08-26 | 15:19:14.604238
+      2 | donal  | 9733983635 |  32 |                  200.25 | M      | 2021-08-25        | 1939-09-12 | 16:59:25.139492   |                 |     2 | IT      |      2 | 2021-08-26 | 15:19:24.54582
+      3 | emma   | 9227983635 |  22 |                  100.25 | F      | 2021-08-25        | 1949-12-12 | 17:00:06.541854   |                 |     3 | ECE     |      3 | 2021-08-26 | 15:19:35.171661
+      4 | emma   | 9227983635 |  22 | 10050000000000000000.89 | F      | 2021-08-25        | 1949-12-12 | 17:21:07.439436   |                 |     4 | AI      |      4 | 2021-08-26 | 15:19:43.955417
+      5 | emma   | 9227983635 |  22 | 10050000000000000000.89 | F      | 2021-08-25        | 1949-12-12 | 17:23:57.308004   |                 |     5 | DS      |      5 | 2021-08-26 | 15:19:52.605976
+      6 | emma   | 9227983635 |  22 | 10050000000000000000.89 | F      | 2021-08-25        | 1949-12-12 | 17:56:11.614468   | {9826373,74348} |     6 | EEE     |      6 | 2021-08-26 | 15:20:03.292247
+(6 rows)
+
+
+day9=# select student.rollno,name,dptname from student inner join department on student.rollno=department.rollno;
+ rollno |  name  | dptname
+--------+--------+---------
+      1 | Mickey | CSE
+      2 | donal  | IT
+      3 | emma   | ECE
+      4 | emma   | AI
+      5 | emma   | DS
+      6 | emma   | EEE
+(6 rows)
+
+
+
+•         Outer Join
+left outer join
+
+
+The PostgreSQL LEFT JOIN or Left Outer Join is used to return all rows from the left table and rows from the other table where the join condition is fulfilled defined in the ON condition. And if there are no corresponding records found from the right table, it will return null.
+
+The Left Join can also be known as the Left Outer Join clause. Therefore, the Outer is the optional keyword, which is used in Left Join. In PostgreSQL, the Left join is parallel to the Inner Join condition.
+
+day9=# select * from student;
+ rollno |  name  |    phno    | age |          fees           | gender | date_of_admission |    dob     | time_of_admission |      faxno
+--------+--------+------------+-----+-------------------------+--------+-------------------+------------+-------------------+-----------------
+      1 | Mickey | 9717983635 |  22 |                  100.25 | M      | 2021-08-25        | 1949-09-12 | 16:57:28.041703   |
+      2 | donal  | 9733983635 |  32 |                  200.25 | M      | 2021-08-25        | 1939-09-12 | 16:59:25.139492   |
+      3 | emma   | 9227983635 |  22 |                  100.25 | F      | 2021-08-25        | 1949-12-12 | 17:00:06.541854   |
+      4 | emma   | 9227983635 |  22 | 10050000000000000000.89 | F      | 2021-08-25        | 1949-12-12 | 17:21:07.439436   |
+      5 | emma   | 9227983635 |  22 | 10050000000000000000.89 | F      | 2021-08-25        | 1949-12-12 | 17:23:57.308004   |
+      6 | emma   | 9227983635 |  22 | 10050000000000000000.89 | F      | 2021-08-25        | 1949-12-12 | 17:56:11.614468   | {9826373,74348}
+(6 rows)
+
+
+day9=# select * from department;
+ dptid | dptname | rollno |    doj     |       toj
+-------+---------+--------+------------+-----------------
+     1 | CSE     |      1 | 2021-08-26 | 15:19:14.604238
+     2 | IT      |      2 | 2021-08-26 | 15:19:24.54582
+     3 | ECE     |      3 | 2021-08-26 | 15:19:35.171661
+     4 | AI      |      4 | 2021-08-26 | 15:19:43.955417
+     5 | DS      |      5 | 2021-08-26 | 15:19:52.605976
+     6 | EEE     |      6 | 2021-08-26 | 15:20:03.292247
+     7 | ME      |      7 | 2021-08-26 | 15:20:17.471548
+(7 rows)
+
+
+day9=# select student.rollno,name,dptname from student left join department on student.rollno=department.rollno;
+ rollno |  name  | dptname
+--------+--------+---------
+      1 | Mickey | CSE
+      2 | donal  | IT
+      3 | emma   | ECE
+      4 | emma   | AI
+      5 | emma   | DS
+      6 | emma   | EEE
+(6 rows)
+
+right outer join:-
+The PostgreSQL Right JOIN or Right Outer Join is used to return all rows from the right table, and rows from the other table where the join condition is fulfilled defined in the ON condition. And if there are no corresponding records found from the Left table, it will return null values.
+
+The Right Join can also be called as the Right Outer Join clause. Therefore, the Outer is the optional keyword, which is used in Right Join. In PostgreSQL, the Right join is parallel to the Left Join condition, but it will give the opposite result of the join tables.
+
+
+day9=# select * from student;
+ rollno |  name  |    phno    | age |          fees           | gender | date_of_admission |    dob     | time_of_admission |      faxno
+--------+--------+------------+-----+-------------------------+--------+-------------------+------------+-------------------+-----------------
+      1 | Mickey | 9717983635 |  22 |                  100.25 | M      | 2021-08-25        | 1949-09-12 | 16:57:28.041703   |
+      2 | donal  | 9733983635 |  32 |                  200.25 | M      | 2021-08-25        | 1939-09-12 | 16:59:25.139492   |
+      3 | emma   | 9227983635 |  22 |                  100.25 | F      | 2021-08-25        | 1949-12-12 | 17:00:06.541854   |
+      4 | emma   | 9227983635 |  22 | 10050000000000000000.89 | F      | 2021-08-25        | 1949-12-12 | 17:21:07.439436   |
+      5 | emma   | 9227983635 |  22 | 10050000000000000000.89 | F      | 2021-08-25        | 1949-12-12 | 17:23:57.308004   |
+      6 | emma   | 9227983635 |  22 | 10050000000000000000.89 | F      | 2021-08-25        | 1949-12-12 | 17:56:11.614468   | {9826373,74348}
+(6 rows)
+
+
+day9=# select * from department;
+ dptid | dptname | rollno |    doj     |       toj
+-------+---------+--------+------------+-----------------
+     1 | CSE     |      1 | 2021-08-26 | 15:19:14.604238
+     2 | IT      |      2 | 2021-08-26 | 15:19:24.54582
+     3 | ECE     |      3 | 2021-08-26 | 15:19:35.171661
+     4 | AI      |      4 | 2021-08-26 | 15:19:43.955417
+     5 | DS      |      5 | 2021-08-26 | 15:19:52.605976
+     6 | EEE     |      6 | 2021-08-26 | 15:20:03.292247
+     7 | ME      |      7 | 2021-08-26 | 15:20:17.471548
+(7 rows)
+
+
+day9=# select student.rollno,name,dptname from student right join department on student.rollno=department.rollno;
+ rollno |  name  | dptname
+--------+--------+---------
+      1 | Mickey | CSE
+      2 | donal  | IT
+      3 | emma   | ECE
+      4 | emma   | AI
+      5 | emma   | DS
+      6 | emma   | EEE
+        |        | ME
+(7 rows)
+
+full outer join :-
+The PostgreSQL Full Join or Full Outer Join is used to return all records when there is a match in the left table or right table records. The main objective of a Full Outer Join is that it will combine the outcome of PostgreSQL Left Join and PostgreSQL Right Join clauses and returns all similar or unmatched rows from the tables on both sides of the join clause.
+
+
+day9=# select * from student;
+ rollno |  name  |    phno    | age |          fees           | gender | date_of_admission |    dob     | time_of_admission |      faxno
+--------+--------+------------+-----+-------------------------+--------+-------------------+------------+-------------------+-----------------
+      1 | Mickey | 9717983635 |  22 |                  100.25 | M      | 2021-08-25        | 1949-09-12 | 16:57:28.041703   |
+      2 | donal  | 9733983635 |  32 |                  200.25 | M      | 2021-08-25        | 1939-09-12 | 16:59:25.139492   |
+      3 | emma   | 9227983635 |  22 |                  100.25 | F      | 2021-08-25        | 1949-12-12 | 17:00:06.541854   |
+      4 | emma   | 9227983635 |  22 | 10050000000000000000.89 | F      | 2021-08-25        | 1949-12-12 | 17:21:07.439436   |
+      5 | emma   | 9227983635 |  22 | 10050000000000000000.89 | F      | 2021-08-25        | 1949-12-12 | 17:23:57.308004   |
+      6 | emma   | 9227983635 |  22 | 10050000000000000000.89 | F      | 2021-08-25        | 1949-12-12 | 17:56:11.614468   | {9826373,74348}
+(6 rows)
+
+
+day9=# select * from department;
+ dptid | dptname | rollno |    doj     |       toj
+-------+---------+--------+------------+-----------------
+     1 | CSE     |      1 | 2021-08-26 | 15:19:14.604238
+     2 | IT      |      2 | 2021-08-26 | 15:19:24.54582
+     3 | ECE     |      3 | 2021-08-26 | 15:19:35.171661
+     4 | AI      |      4 | 2021-08-26 | 15:19:43.955417
+     5 | DS      |      5 | 2021-08-26 | 15:19:52.605976
+     6 | EEE     |      6 | 2021-08-26 | 15:20:03.292247
+     7 | ME      |      7 | 2021-08-26 | 15:20:17.471548
+(7 rows)
+
+
+day9=# select student.rollno,name,dptname from student full join department on student.rollno=department.rollno;
+ rollno |  name  | dptname
+--------+--------+---------
+      1 | Mickey | CSE
+      2 | donal  | IT
+      3 | emma   | ECE
+      4 | emma   | AI
+      5 | emma   | DS
+      6 | emma   | EEE
+        |        | ME
+(7 rows)
+
+
+day9=# select student.rollno,name,dptname from student full outer join department on student.rollno=department.rollno;
+ rollno |  name  | dptname
+--------+--------+---------
+      1 | Mickey | CSE
+      2 | donal  | IT
+      3 | emma   | ECE
+      4 | emma   | AI
+      5 | emma   | DS
+      6 | emma   | EEE
+        |        | ME
+(7 rows)
+
+
+    
+  •   Cross Join
+
+The PostgreSQL Cross Join is used to combine all possibilities of the multiple tables and returns the output, which contain each row from all the selected tables. The CROSS JOIN, further known as CARTESIAN JOIN that allows us to produce the Cartesian product of all related tables.
+
+The Cartesian product can be described as all existing rows in the first table multiplied by all rows in the second table. It is parallel to the Inner Join, where the join condition is not existing with this clause.
+day9=# select * from student;
+ rollno |  name  |    phno    | age |          fees           | gender | date_of_admission |    dob     | time_of_admission |      faxno
+--------+--------+------------+-----+-------------------------+--------+-------------------+------------+-------------------+-----------------
+      1 | Mickey | 9717983635 |  22 |                  100.25 | M      | 2021-08-25        | 1949-09-12 | 16:57:28.041703   |
+      2 | donal  | 9733983635 |  32 |                  200.25 | M      | 2021-08-25        | 1939-09-12 | 16:59:25.139492   |
+      3 | emma   | 9227983635 |  22 |                  100.25 | F      | 2021-08-25        | 1949-12-12 | 17:00:06.541854   |
+      4 | emma   | 9227983635 |  22 | 10050000000000000000.89 | F      | 2021-08-25        | 1949-12-12 | 17:21:07.439436   |
+      5 | emma   | 9227983635 |  22 | 10050000000000000000.89 | F      | 2021-08-25        | 1949-12-12 | 17:23:57.308004   |
+      6 | emma   | 9227983635 |  22 | 10050000000000000000.89 | F      | 2021-08-25        | 1949-12-12 | 17:56:11.614468   | {9826373,74348}
+(6 rows)
+
+
+day9=# select * from department;
+ dptid | dptname | rollno |    doj     |       toj
+-------+---------+--------+------------+-----------------
+     1 | CSE     |      1 | 2021-08-26 | 15:19:14.604238
+     2 | IT      |      2 | 2021-08-26 | 15:19:24.54582
+     3 | ECE     |      3 | 2021-08-26 | 15:19:35.171661
+     4 | AI      |      4 | 2021-08-26 | 15:19:43.955417
+     5 | DS      |      5 | 2021-08-26 | 15:19:52.605976
+     6 | EEE     |      6 | 2021-08-26 | 15:20:03.292247
+     7 | ME      |      7 | 2021-08-26 | 15:20:17.471548
+(7 rows)
+
+
+day9=# select student.rollno,name,dptname from student cross join department on student.rollno=department.rollno;
+ERROR:  syntax error at or near "on"
+LINE 1: ...o,name,dptname from student cross join department on student...
+                                                             ^
+day9=# select student.rollno,name,dptname from student cross join department ;
+ rollno |  name  | dptname
+--------+--------+---------
+      1 | Mickey | CSE
+      2 | donal  | CSE
+      3 | emma   | CSE
+      4 | emma   | CSE
+      5 | emma   | CSE
+      6 | emma   | CSE
+      1 | Mickey | IT
+      2 | donal  | IT
+      3 | emma   | IT
+      4 | emma   | IT
+      5 | emma   | IT
+      6 | emma   | IT
+      1 | Mickey | ECE
+      2 | donal  | ECE
+      3 | emma   | ECE
+      4 | emma   | ECE
+      5 | emma   | ECE
+      6 | emma   | ECE
+      1 | Mickey | AI
+      2 | donal  | AI
+      3 | emma   | AI
+      4 | emma   | AI
+      5 | emma   | AI
+      6 | emma   | AI
+      1 | Mickey | DS
+      2 | donal  | DS
+      3 | emma   | DS
+      4 | emma   | DS
+      5 | emma   | DS
+      6 | emma   | DS
+      1 | Mickey | EEE
+      2 | donal  | EEE
+      3 | emma   | EEE
+      4 | emma   | EEE
+      5 | emma   | EEE
+      6 | emma   | EEE
+      1 | Mickey | ME
+      2 | donal  | ME
+      3 | emma   | ME
+      4 | emma   | ME
+      5 | emma   | ME
+      6 | emma   | ME
+(42 rows)
+ 6*7=42 rows
+
+
+
+•         Self-Join
+In PostgreSQL, we have one particular type of join, which is known as Self Join. The "PostgreSQL Self Join is used to set the different names of a similar table completely, and we can use the aliases also.
+
+To proceed a self-join, we will define a similar table two times with different table aliases and give the Join predicate after the ON keyword.
+
+In real-time, we use a self-join to compare rows within the same table (because the comparison of similar table name is not allowed in PostgreSQL), and to fetch the hierarchical data.
+
+day9=# select * from department c inner join department o on c.dptid=o.dptid;
+ dptid | dptname | rollno |    doj     |       toj       | dptid | dptname | rollno |    doj     |       toj
+-------+---------+--------+------------+-----------------+-------+---------+--------+------------+-----------------
+     1 | CSE     |      1 | 2021-08-26 | 15:19:14.604238 |     1 | CSE     |      1 | 2021-08-26 | 15:19:14.604238
+     2 | IT      |      2 | 2021-08-26 | 15:19:24.54582  |     2 | IT      |      2 | 2021-08-26 | 15:19:24.54582
+     3 | ECE     |      3 | 2021-08-26 | 15:19:35.171661 |     3 | ECE     |      3 | 2021-08-26 | 15:19:35.171661
+     4 | AI      |      4 | 2021-08-26 | 15:19:43.955417 |     4 | AI      |      4 | 2021-08-26 | 15:19:43.955417
+     5 | DS      |      5 | 2021-08-26 | 15:19:52.605976 |     5 | DS      |      5 | 2021-08-26 | 15:19:52.605976
+     6 | EEE     |      6 | 2021-08-26 | 15:20:03.292247 |     6 | EEE     |      6 | 2021-08-26 | 15:20:03.292247
+     7 | ME      |      7 | 2021-08-26 | 15:20:17.471548 |     7 | ME      |      7 | 2021-08-26 | 15:20:17.471548
+(7 rows)
+
+
+day9=# select * from department;
+ dptid | dptname | rollno |    doj     |       toj
+-------+---------+--------+------------+-----------------
+     1 | CSE     |      1 | 2021-08-26 | 15:19:14.604238
+     2 | IT      |      2 | 2021-08-26 | 15:19:24.54582
+     3 | ECE     |      3 | 2021-08-26 | 15:19:35.171661
+     4 | AI      |      4 | 2021-08-26 | 15:19:43.955417
+     5 | DS      |      5 | 2021-08-26 | 15:19:52.605976
+     6 | EEE     |      6 | 2021-08-26 | 15:20:03.292247
+     7 | ME      |      7 | 2021-08-26 | 15:20:17.471548
+(7 rows)
+
+
+day9=# select * from department c inner join department o on c.dptid=o.dptid;
+ dptid | dptname | rollno |    doj     |       toj       | dptid | dptname | rollno |    doj     |       toj
+-------+---------+--------+------------+-----------------+-------+---------+--------+------------+-----------------
+     1 | CSE     |      1 | 2021-08-26 | 15:19:14.604238 |     1 | CSE     |      1 | 2021-08-26 | 15:19:14.604238
+     2 | IT      |      2 | 2021-08-26 | 15:19:24.54582  |     2 | IT      |      2 | 2021-08-26 | 15:19:24.54582
+     3 | ECE     |      3 | 2021-08-26 | 15:19:35.171661 |     3 | ECE     |      3 | 2021-08-26 | 15:19:35.171661
+     4 | AI      |      4 | 2021-08-26 | 15:19:43.955417 |     4 | AI      |      4 | 2021-08-26 | 15:19:43.955417
+     5 | DS      |      5 | 2021-08-26 | 15:19:52.605976 |     5 | DS      |      5 | 2021-08-26 | 15:19:52.605976
+     6 | EEE     |      6 | 2021-08-26 | 15:20:03.292247 |     6 | EEE     |      6 | 2021-08-26 | 15:20:03.292247
+     7 | ME      |      7 | 2021-08-26 | 15:20:17.471548 |     7 | ME      |      7 | 2021-08-26 | 15:20:17.471548
+(7 rows)
+
+
+day9=# select dptid,dptname,rollno from department c inner join department o on c.dptid=o.dptid;
+ERROR:  column reference "dptid" is ambiguous
+LINE 1: select dptid,dptname,rollno from department c inner join dep...
+               ^
+day9=# select c.dptid,o.dptname,c.rollno from department c inner join department o on c.dptid=o.dptid;
+ dptid | dptname | rollno
+-------+---------+--------
+     1 | CSE     |      1
+     2 | IT      |      2
+     3 | ECE     |      3
+     4 | AI      |      4
+     5 | DS      |      5
+     6 | EEE     |      6
+     7 | ME      |      7
+(7 rows)
+
+Natural join works same as inner join
+
+•         Union
+
+The PostgreSQL UNION clause/operator is used to combine the results of two or more SELECT statements without returning any duplicate rows.
+
+To use UNION, each SELECT must have the same number of columns selected, the same number of column expressions, the same data type, and have them in the same order but they do not have to be the same length.
+
+Syntax
+The basic syntax of UNION is as follows −
+
+SELECT column1 [, column2 ]
+FROM table1 [, table2 ]
+[WHERE condition]
+
+UNION
+
+SELECT column1 [, column2 ]
+FROM table1 [, table2 ]
+[WHERE condition]
+
+•         Intersect
+
+•         Understanding Views
+•         Need of Views
+•         Creating, Altering and Dropping Views
+•         Simple and Complex Views

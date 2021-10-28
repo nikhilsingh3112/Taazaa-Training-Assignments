@@ -1,0 +1,44 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\Users\lenovo\Desktop\UserManagementSystem> dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL --version 5.0.7
+  Determining projects to restore...
+  Writing C:\Users\lenovo\AppData\Local\Temp\tmp3400.tmp
+proj'.
+info : Restoring packages for C:\Users\lenovo\Desktop\UserManagementSystem\UserManagementSystem.csproj...
+info : Package 'Npgsql.EntityFrameworkCore.PostgreSQL' is compatible with all the specified frameworks in project 'C:\Users\lenovo\Desktop\UserManagementSystem\UserMinfo : PackageReference for package 'Npgsql.EntityFrameworkCore.PostgreSQL' version '5.0.7' added to file 'C:\Users\lenovo\Desktop\UserManagementSystem\UserManagementSystem.csproj'.
+info : Committing restore...
+info : Writing assets file to disk. Path: C:\Users\lenovo\Desktop\UserManagementSystem\obj\project.assets.json
+log  : Restored C:\Users\lenovo\Desktop\UserManagementSystem\UserManagementSystem.csproj (in 427 ms).
+PS C:\Users\lenovo\Desktop\UserManagementSystem>
+PS C:\Users\lenovo\Desktop\UserManagementSystem> Install-Package AutoMapper -Version 10.1.1
+
+The provider 'nuget v2.8.5.208' is not installed.
+nuget may be manually downloaded from https://onegetcdn.azureedge.net/providers/Microsoft.PackageManagement.NuGetProvider-2.8.5.208.dll and installed.
+Would you like PackageManagement to automatically download and install 'nuget' now?
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): yes
+PS C:\Users\lenovo\Desktop\UserManagementSystem> dotnet add package AutoMapper --version 10.1.1
+  Determining projects to restore...
+  Writing C:\Users\lenovo\AppData\Local\Temp\tmp8D29.tmp
+info : Adding PackageReference for package 'AutoMapper' into project 'C:\Users\lenovo\Desktop\UserManagementSystem\UserManagementSystem.csproj'.
+info : Restoring packages for C:\Users\lenovo\Desktop\UserManagementSystem\UserManagementSystem.csproj...
+info :   GET https://api.nuget.org/v3-flatcontainer/automapper/index.json
+info :   OK https://api.nuget.org/v3-flatcontainer/automapper/index.json 1062ms
+info :   GET https://api.nuget.org/v3-flatcontainer/automapper/10.1.1/automapper.10.1.1.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/automapper/10.1.1/automapper.10.1.1.nupkg 9ms
+info :   GET https://api.nuget.org/v3-flatcontainer/system.reflection.emit/index.json
+info :   OK https://api.nuget.org/v3-flatcontainer/system.reflection.emit/index.json 1060ms
+info :   GET https://api.nuget.org/v3-flatcontainer/system.reflection.emit/4.7.0/system.reflection.emit.4.7.0.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/system.reflection.emit/4.7.0/system.reflection.emit.4.7.0.nupkg 9ms
+info : Installed AutoMapper 10.1.1 from https://api.nuget.org/v3/index.json with content hash uMgbqOdu9ZG5cIOty0C85hzzayBH2i9BthnS5FlMqKtMSHDv4ts81a2jS1VFaDBVhlBeIqJ/kQKjQY95BZde9w==.
+info : Installed System.Reflection.Emit 4.7.0 from https://api.nuget.org/v3/index.json with content hash VR4kk8XLKebQ4MZuKuIni/7oh+QGFmZW3qORd1GvBq/8026OpW501SzT/oypwiQl4TvT8ErnReh/NzY9u+C6wQ==.
+info : Package 'AutoMapper' is compatible with all the specified frameworks in project 'C:\Users\lenovo\Desktop\UserManagementSystem\UserManagementSystem.csproj'.
+info : PackageReference for package 'AutoMapper' version '10.1.1' added to file 'C:\Users\lenovo\Desktop\UserManagementSystem\UserManagementSystem.csproj'.
+info : Committing restore...
+info : Writing assets file to disk. Path: C:\Users\lenovo\Desktop\UserManagementSystem\obj\project.assets.json
+log  : Restored C:\Users\lenovo\Desktop\UserManagementSystem\UserManagementSystem.csproj (in 3.63 sec).
+PS C:\Users\lenovo\Desktop\UserManagementSystem> 
+____________________________________________________________________________________________________________________
+private const string cs = "Host=localhost;Port=5432;User ID=postgres;Password=3238;Database=userdb;Pooling=true";

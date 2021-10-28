@@ -1,0 +1,62 @@
+https://angular.io/cli/generate#component-command
+https://www.codegrepper.com/code-examples/javascript/ng+g+c
+https://www.techiediaries.com/how-to-create-angular-9-8-components/
+
+===================
+ng g c Register
+===================
+
+/home/home.component.ts       # Component class
+/home/home.component.html     # Component template
+/home/home.component.css      # Component styles
+/home/home.component.spec.ts  # Component tests
+
+
+==================
+ng g c Login
+==================
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+=============================================================
+Corew Web Api reference
+https://code-maze.com/net-core-series/
+=====================================================
+
+Links:-
+https://angular.io/guide/reactive-forms
+
+https://scotch.io/tutorials/angular-2-form-validation
+
+https://angular.io/guide/forms
+
+
+
+
+Case Study:
+We need to add drop down box (for user to choose nationality)
+Gender--> Radio button /
+Calender for dob
+
+
+
+
+
+
+=====================================================================
+Automapper:::===>
+
+step 1: dotnet add package AutoMapper --version 10.1.1
+step 2 :make a class - AutomapperProfile: Profile
+step 3: Make a default constructor.
+step 4:
+public AutoMapperProfile()
+       {
+           CreateMap<UserDTO, User>();
+       } 
+
+step 5: dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
+step 6: in Startup.cs:  services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+==============================================================

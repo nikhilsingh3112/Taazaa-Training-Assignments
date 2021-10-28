@@ -1,0 +1,51 @@
+==============================
+npm install --save typescript
+npm install esm
+==============================
+
+To setup the Angular Environment we need to install Angular Latest Version
+==================================================
+npm install -g @angular/cli
+==================================================
+To check angular installation :-
+ run "ng" in cmd
+---------------------
+ng is a CLI tool of Angular similar to Dotnet in DotnetCore
+======================================================
+
+To check version of installed Angular---> ng --version
+
+=========================================================
+
+Now create a website in Angular:
+---------------------------------------------
+ng new TaazaaUserManagement
+ng new FinalProject
+ng new Day1
+
+ng new is a command to create a website in angular.
+=============================================================
+
+ng serve -o
+=============================================================
+
+
+==================
+Day 2 Angular
+==================
+
+import { Person } from "../Models/Person";
+
+export class PersonService
+{
+    GetPersonDetails():Person[]
+    {
+        let personobj:Person[];
+        personobj=[
+            new Person(1,'Ganesh'),
+            new Person(1,'Nikhil'),
+        ]
+        return personobj;
+
+    }
+}

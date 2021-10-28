@@ -1,0 +1,2 @@
+1)ParameterizedThreadStart .... i will take single parameter and return void
+2) ThreadStart...... i will calling that method that does not take parameter and return void

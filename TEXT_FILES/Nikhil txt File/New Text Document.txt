@@ -1,0 +1,363 @@
+Server [localhost]:
+Database [postgres]:
+Port [5432]:
+Username [postgres]:
+Password for user postgres:
+psql (13.4)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# create database Day13P;
+CREATE DATABASE
+postgres=# \l;
+invalid command \l;
+Try \? for help.
+postgres=# /l;
+ERROR:  syntax error at or near "/"
+LINE 1: /l;
+        ^
+postgres=# \c day13p;
+You are now connected to database "day13p" as user "postgres".
+day13p=# create table emp(
+day13p(# id int generated always as identity,
+day13p(# name varchar(20);
+day13p(# password varchar(50));
+ERROR:  syntax error at or near ";"
+LINE 3: name varchar(20);
+                        ^
+day13p=# create table emp(
+day13p(# id int generated always as identity,
+day13p(# name varchar(20),
+day13p(# password varchar(50));
+CREATE TABLE
+day13p=# insert into emp(name,password) values('Gurpreet Singh','12345');
+INSERT 0 1
+day13p=# insert into emp(name,password) values('Max','123245');
+INSERT 0 1
+day13p=# insert into emp(name,password) values('Tom','122225');
+INSERT 0 1
+day13p=# insert into emp(name,password) values('Jerry','136225');
+INSERT 0 1
+day13p=# select * from emp;
+ id |      name      | password
+----+----------------+----------
+  1 | Gurpreet Singh | 12345
+  2 | Max            | 123245
+  3 | Tom            | 122225
+  4 | Jerry          | 136225
+(4 rows)
+
+
+day13p=# create function Display()
+day13p-# returns setof emp
+day13p-# as $$
+day13p$# select* from emp;
+day13p$# $$ language=sql;
+ERROR:  syntax error at or near "="
+LINE 5: $$ language=sql;
+                   ^
+day13p=# create function Display()
+day13p-# returns setof emp
+day13p-# as $$
+day13p$# select * from emp;
+day13p$# $$ language sql;
+CREATE FUNCTION
+day13p=# select * from Display();
+ id |      name      | password
+----+----------------+----------
+  1 | Gurpreet Singh | 12345
+  2 | Max            | 123245
+  3 | Tom            | 122225
+  4 | Jerry          | 136225
+(4 rows)
+
+
+day13p=#
+day13p=# create function displayUserPass(n varchar)
+day13p-# returns varchar
+day13p-# as $$
+day13p$# begin
+day13p$# return (select password from emp where name=n);
+day13p$# end;
+day13p$# $$ language plpgsql;
+CREATE FUNCTION
+day13p=# select displayUserPass('Max');
+ displayuserpass
+-----------------
+ 123245
+(1 row)
+
+
+day13p=#
+day13p=# create function displayCount()
+day13p-# returns integer
+day13p-# as $$
+day13p$# begin
+day13p$# return (select count(*) from emp);
+day13p$# end;
+day13p$# $$ language plpgsql;
+CREATE FUNCTION
+day13p=# select displayCount();
+ displaycount
+--------------
+            4
+(1 row)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

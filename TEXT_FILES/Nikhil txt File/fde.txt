@@ -1,0 +1,15 @@
+create function getuserpass(name varchar)
+returns varchar 
+AS $$
+begin
+	return (select password from membership where username=name);
+end ;
+$$ Language plpgsql;
+_____________________________________
+create function getCountData()
+returns integer 
+AS $$
+begin
+	return (select count(*) from membership);
+end ;
+$$ Language plpgsql;

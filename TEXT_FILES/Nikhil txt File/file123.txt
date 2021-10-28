@@ -1,0 +1,4 @@
+to read:-
+1) Difference between Configure and configure Services
+2) Write a program to enter data and search data in HashTable.
+3) Dictionary(add,fetch,search)

@@ -1,0 +1,339 @@
+create database sandeepdbs
+create table stud
+(
+   id integer primary key,
+   name varchar(20) not null
+);
+
+insert into stud values(101,'Ganesh');
+insert into stud values(102,'Nikhil');
+insert into stud values(103,'Rahul');
+select * from stud;
+
+
+
+Create or Replace function countRecords()
+returns integer
+as
+$$
+declare 
+temp integer;
+begin
+	 temp=count(*) from stud;
+	 return temp;
+end;
+$$ language plpgsql;
+ 
+
+select countRecords();
+
+
+
+
+
+
+create function details()
+returns table;
+as
+return (select * from stud)
+select * from details();
+
+
+                            or
+
+create or replace function details()
+returns setof stud
+as
+$$
+begin
+return query select * from stud;
+end;
+$$
+language plpgsql;
+
+CREATE FUNCTION
+
+day15p=# select info();
+    info
+-------------
+ (101,Karan)
+ (102,Rahul)
+(2 rows)
+
+create or replace function detail()
+returns setof stud
+as
+$$
+begin
+return select * from ;
+end;
+$$
+language plpgsql;
+
+
+
+
+
+SEARCH:
+SQL:
+create function search(@id integer)
+returns varchar(20)
+as
+  begin
+     declare @name varchar(10)
+	 select @name=name from stud where id=@id
+	 return @name
+  end
+
+  select dbo.search(101)
+
+  declare @n varchar(20)
+  set @n=dbo.search(101)
+  select @n
+
+PLPGSQL:
+
+create or replace function search2(id1 integer)
+returns varchar(20)
+as
+$$
+declare name varchar(10);
+begin
+       name=stud.name from stud where stud.id=id1;
+       return name;
+  end
+$$ language plpgsql;
+
+  select search2(101);
+
+  declare n varchar(20);
+  set n=dbo.search(101);
+  select n;
+
+
+
+
+
+
+
+
+
+SQL:
+
+create proc myp
+@i integer
+AS
+   BEGIN
+
+       RETURN @i+5
+   END
+
+ declare @t integer
+ exec @t=myp 12
+ select @t
+
+
+ 
+
+
+   create proc myname
+   as
+    begin
+	  select 'i am sakshi gupta' 
+	end
+
+	exec myname
+
+
+================================================================================================================================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======================================================================================================================================================================================
+Server [localhost]:
+Database [postgres]:
+Port [5432]:
+Username [postgres]:
+Password for user postgres:
+psql (13.4)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# \l
+                                                   List of databases
+      Name      |  Owner   | Encoding |          Collate           |           Ctype            |   Access privileges   ----------------+----------+----------+----------------------------+----------------------------+----------------------- assignment     | postgres | UTF8     | English_United States.1252 | English_United States.1252 |
+ day10          | postgres | UTF8     | English_United States.1252 | English_United States.1252 |
+ day12          | postgres | UTF8     | English_United States.1252 | English_United States.1252 |
+ day9           | postgres | UTF8     | English_United States.1252 | English_United States.1252 |
+ dbname         | postgres | UTF8     | English_United States.1252 | English_United States.1252 |
+ ganesh         | postgres | UTF8     | English_United States.1252 | English_United States.1252 |
+ postgres       | postgres | UTF8     | English_United States.1252 | English_United States.1252 |
+ projectdb      | postgres | UTF8     | English_United States.1252 | English_United States.1252 |
+ shubham        | postgres | UTF8     | English_United States.1252 | English_United States.1252 |
+ taazaadbs      | postgres | UTF8     | English_United States.1252 | English_United States.1252 |
+ template0      | postgres | UTF8     | English_United States.1252 | English_United States.1252 | =c/postgres          +                |          |          |                            |                            | postgres=CTc/postgres
+ template1      | postgres | UTF8     | English_United States.1252 | English_United States.1252 | =c/postgres          +                |          |          |                            |                            | postgres=CTc/postgres
+ usermanagement | postgres | UTF8     | English_United States.1252 | English_United States.1252 |
+(13 rows)
+
+
+postgres=# create database sqltopostgre;
+CREATE DATABASE
+postgres=# \c sqltopostgre;
+You are now connected to database "sqltopostgre" as user "postgres".
+sqltopostgre=# create table stud
+sqltopostgre-# (
+sqltopostgre(#    id integer primary key,
+sqltopostgre(#    name varchar(20) not null
+sqltopostgre(# );
+CREATE TABLE
+sqltopostgre=# insert into stud values(101,'Ganesh');
+INSERT 0 1
+sqltopostgre=# insert into stud values(102,'Nikhil');
+INSERT 0 1
+sqltopostgre=# insert into stud values(103,'Rahul');
+INSERT 0 1
+sqltopostgre=# select * from stud;
+ id  |  name
+-----+--------
+ 101 | Ganesh
+ 102 | Nikhil
+ 103 | Rahul
+(3 rows)
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CREATING A FUNCTION TO COUNT RECORDS:
+
+sqltopostgre=# Create or Replace function countRecords()
+sqltopostgre-# returns integer
+sqltopostgre-# as
+sqltopostgre-# $$
+sqltopostgre$# declare
+sqltopostgre$# temp integer;
+sqltopostgre$# begin
+sqltopostgre$# temp=count(*) from stud;
+sqltopostgre$# return temp;
+sqltopostgre$# end;
+sqltopostgre$# $$ language plpgsql;
+CREATE FUNCTION
+sqltopostgre=# select countRecords();
+ countrecords
+--------------
+            3
+(1 row)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+RETURN TABLE USING FUNCTION:
+                
+sqltopostgre=# create or replace function details()
+sqltopostgre-# returns setof stud
+sqltopostgre-# as
+sqltopostgre-# $$
+sqltopostgre$# begin
+sqltopostgre$# return query select * from stud;
+sqltopostgre$# end;
+sqltopostgre$# $$
+sqltopostgre-# language plpgsql;
+CREATE FUNCTION
+sqltopostgre=# select details();
+   details
+--------------
+ (101,Ganesh)
+ (102,Nikhil)
+ (103,Rahul)
+(3 rows)
+
+sqltopostgre=# select * from details();
+ id  |  name
+-----+--------
+ 101 | Ganesh
+ 102 | Nikhil
+ 103 | Rahul
+(3 rows)
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SEARCH METHOD:
+
+
+sqltopostgre=# create or replace function search2(id1 integer)
+sqltopostgre-# returns varchar(20)
+sqltopostgre-# as
+sqltopostgre-# $$
+sqltopostgre$# declare name varchar(10);
+sqltopostgre$# begin
+sqltopostgre$#        name=stud.name from stud where stud.id=id1;
+sqltopostgre$#        return name;
+sqltopostgre$#   end
+sqltopostgre$# $$ language plpgsql;
+CREATE FUNCTION
+sqltopostgre=#  select search2(101);
+ search2
+---------
+ Ganesh
+(1 row)
+
+
+sqltopostgre=#
+
+
+
+
+
+
+
+
+
+
+
+
+=========================================================================================================================================
+
+Theory
+1) ParameterizedThreadStart- Takes single parameter and returns as a void.
+2)ThreadStart......i will be calling those methods which does not take parameter and return void
+
+
+
+
+
+

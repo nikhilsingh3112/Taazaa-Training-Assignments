@@ -1,0 +1,71 @@
+27-08-2021 
+link 1:-https://www.postgresqltutorial.com/plpgsql-variables/
+link 2:- https://www.techonthenet.com/postgresql/declare_vars.php#:~:text=The%20syntax%20to%20declare%20a%20variable%20in%20PostgreSQL,The%20datatype%20to%20assign%20to%20the%20variable.%20Optional.
+link:- https://www.geeksforgeeks.org/postgresql-for-loops/
+-----------------------------------------------------------------------------------------
+Q.How to Declare a variable in database?
+Ans:-In PostgreSQL, a variable allows a programmer to store data temporarily during the execution of code.
+
+The syntax to declare a variable in PostgreSQL is:
+
+DECLARE variable_name [ CONSTANT ] datatype [ NOT NULL ] [ { DEFAULT | := } initial_value ]
+
+
+Parameters or Arguments
+variable_name
+The name to assign to the variable.
+CONSTANT
+Optional. If specified, the value of the variable can not be changed after the variable has been initialized.
+datatype
+The datatype to assign to the variable.
+NOT NULL
+Optional. If specified, the variable can not contain a NULL value.
+initial_value
+Optional. It is the value initially assigned to the variable when it is declared. If an initial_value is not specified, the variable is assigned a value of NULL.
+
+do $$
+declare
+   id    integer := 1;
+   name varchar(50) := 'John';
+   age  numeric(10,2) := 22;
+begin 
+   raise notice '% % %', 
+           id, 
+	   name, 
+	   age;
+end $$;
+
+
+do $$ 
+declare
+   ctime time := now();
+begin 
+   raise notice '%',ctime ;
+end $$;
+
+
+    
+_____________________________
+Ques:How to apply loop?
+
+
+
+____________________________
+
+how to apply break?
+how to apply continue?
+how to apply switch?
+how to apply if-else?
+do $$
+declare
+val integer :=14;
+begin
+if val<15 then
+raise notice 'value is less then 15';
+end if;
+end ; $$;
+NOTICE:  value is less then 15
+DO
+gurpreet_singh=#
+
+howto use begin-end?

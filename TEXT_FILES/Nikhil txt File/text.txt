@@ -1,0 +1,7 @@
+func<>
+action<>
+predicate<>
+* linq query in list
+delegate
+anonymous method
+lamda
