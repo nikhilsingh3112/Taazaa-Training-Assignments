@@ -1,0 +1,16 @@
+C:\Users\HP\Desktop\AstDay5\collection\bin\Debug\net5.0\collection.exe
+C:\Users\HP\Desktop\AstDay5\collection\bin\Debug\net5.0\collection.deps.json
+C:\Users\HP\Desktop\AstDay5\collection\bin\Debug\net5.0\collection.runtimeconfig.json
+C:\Users\HP\Desktop\AstDay5\collection\bin\Debug\net5.0\collection.runtimeconfig.dev.json
+C:\Users\HP\Desktop\AstDay5\collection\bin\Debug\net5.0\collection.dll
+C:\Users\HP\Desktop\AstDay5\collection\bin\Debug\net5.0\ref\collection.dll
+C:\Users\HP\Desktop\AstDay5\collection\bin\Debug\net5.0\collection.pdb
+C:\Users\HP\Desktop\AstDay5\collection\obj\Debug\net5.0\collection.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\AstDay5\collection\obj\Debug\net5.0\collection.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Desktop\AstDay5\collection\obj\Debug\net5.0\collection.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\AstDay5\collection\obj\Debug\net5.0\collection.AssemblyInfo.cs
+C:\Users\HP\Desktop\AstDay5\collection\obj\Debug\net5.0\collection.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\AstDay5\collection\obj\Debug\net5.0\collection.dll
+C:\Users\HP\Desktop\AstDay5\collection\obj\Debug\net5.0\ref\collection.dll
+C:\Users\HP\Desktop\AstDay5\collection\obj\Debug\net5.0\collection.pdb
+C:\Users\HP\Desktop\AstDay5\collection\obj\Debug\net5.0\collection.genruntimeconfig.cache
