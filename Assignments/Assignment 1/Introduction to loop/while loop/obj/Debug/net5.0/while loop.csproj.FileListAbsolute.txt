@@ -1,0 +1,16 @@
+C:\Users\HP\Desktop\Assignment1\while loop\bin\Debug\net5.0\while loop.exe
+C:\Users\HP\Desktop\Assignment1\while loop\bin\Debug\net5.0\while loop.deps.json
+C:\Users\HP\Desktop\Assignment1\while loop\bin\Debug\net5.0\while loop.runtimeconfig.json
+C:\Users\HP\Desktop\Assignment1\while loop\bin\Debug\net5.0\while loop.runtimeconfig.dev.json
+C:\Users\HP\Desktop\Assignment1\while loop\bin\Debug\net5.0\while loop.dll
+C:\Users\HP\Desktop\Assignment1\while loop\bin\Debug\net5.0\ref\while loop.dll
+C:\Users\HP\Desktop\Assignment1\while loop\bin\Debug\net5.0\while loop.pdb
+C:\Users\HP\Desktop\Assignment1\while loop\obj\Debug\net5.0\while loop.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\Assignment1\while loop\obj\Debug\net5.0\while loop.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Desktop\Assignment1\while loop\obj\Debug\net5.0\while loop.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\Assignment1\while loop\obj\Debug\net5.0\while loop.AssemblyInfo.cs
+C:\Users\HP\Desktop\Assignment1\while loop\obj\Debug\net5.0\while loop.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\Assignment1\while loop\obj\Debug\net5.0\while loop.dll
+C:\Users\HP\Desktop\Assignment1\while loop\obj\Debug\net5.0\ref\while loop.dll
+C:\Users\HP\Desktop\Assignment1\while loop\obj\Debug\net5.0\while loop.pdb
+C:\Users\HP\Desktop\Assignment1\while loop\obj\Debug\net5.0\while loop.genruntimeconfig.cache
