@@ -1,0 +1,16 @@
+C:\Users\HP\Desktop\Assignment1\Strings\Mutable strings\bin\Debug\net5.0\Mutable strings.exe
+C:\Users\HP\Desktop\Assignment1\Strings\Mutable strings\bin\Debug\net5.0\Mutable strings.deps.json
+C:\Users\HP\Desktop\Assignment1\Strings\Mutable strings\bin\Debug\net5.0\Mutable strings.runtimeconfig.json
+C:\Users\HP\Desktop\Assignment1\Strings\Mutable strings\bin\Debug\net5.0\Mutable strings.runtimeconfig.dev.json
+C:\Users\HP\Desktop\Assignment1\Strings\Mutable strings\bin\Debug\net5.0\Mutable strings.dll
+C:\Users\HP\Desktop\Assignment1\Strings\Mutable strings\bin\Debug\net5.0\ref\Mutable strings.dll
+C:\Users\HP\Desktop\Assignment1\Strings\Mutable strings\bin\Debug\net5.0\Mutable strings.pdb
+C:\Users\HP\Desktop\Assignment1\Strings\Mutable strings\obj\Debug\net5.0\Mutable strings.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\Assignment1\Strings\Mutable strings\obj\Debug\net5.0\Mutable strings.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Desktop\Assignment1\Strings\Mutable strings\obj\Debug\net5.0\Mutable strings.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\Assignment1\Strings\Mutable strings\obj\Debug\net5.0\Mutable strings.AssemblyInfo.cs
+C:\Users\HP\Desktop\Assignment1\Strings\Mutable strings\obj\Debug\net5.0\Mutable strings.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\Assignment1\Strings\Mutable strings\obj\Debug\net5.0\Mutable strings.dll
+C:\Users\HP\Desktop\Assignment1\Strings\Mutable strings\obj\Debug\net5.0\ref\Mutable strings.dll
+C:\Users\HP\Desktop\Assignment1\Strings\Mutable strings\obj\Debug\net5.0\Mutable strings.pdb
+C:\Users\HP\Desktop\Assignment1\Strings\Mutable strings\obj\Debug\net5.0\Mutable strings.genruntimeconfig.cache
