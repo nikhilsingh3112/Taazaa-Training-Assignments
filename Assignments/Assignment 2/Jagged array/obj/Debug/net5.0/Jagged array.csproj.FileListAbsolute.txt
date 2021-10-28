@@ -1,0 +1,16 @@
+C:\Users\HP\Desktop\Day2\Jagged array\bin\Debug\net5.0\Jagged array.exe
+C:\Users\HP\Desktop\Day2\Jagged array\bin\Debug\net5.0\Jagged array.deps.json
+C:\Users\HP\Desktop\Day2\Jagged array\bin\Debug\net5.0\Jagged array.runtimeconfig.json
+C:\Users\HP\Desktop\Day2\Jagged array\bin\Debug\net5.0\Jagged array.runtimeconfig.dev.json
+C:\Users\HP\Desktop\Day2\Jagged array\bin\Debug\net5.0\Jagged array.dll
+C:\Users\HP\Desktop\Day2\Jagged array\bin\Debug\net5.0\ref\Jagged array.dll
+C:\Users\HP\Desktop\Day2\Jagged array\bin\Debug\net5.0\Jagged array.pdb
+C:\Users\HP\Desktop\Day2\Jagged array\obj\Debug\net5.0\Jagged array.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\Day2\Jagged array\obj\Debug\net5.0\Jagged array.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Desktop\Day2\Jagged array\obj\Debug\net5.0\Jagged array.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\Day2\Jagged array\obj\Debug\net5.0\Jagged array.AssemblyInfo.cs
+C:\Users\HP\Desktop\Day2\Jagged array\obj\Debug\net5.0\Jagged array.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\Day2\Jagged array\obj\Debug\net5.0\Jagged array.dll
+C:\Users\HP\Desktop\Day2\Jagged array\obj\Debug\net5.0\ref\Jagged array.dll
+C:\Users\HP\Desktop\Day2\Jagged array\obj\Debug\net5.0\Jagged array.pdb
+C:\Users\HP\Desktop\Day2\Jagged array\obj\Debug\net5.0\Jagged array.genruntimeconfig.cache

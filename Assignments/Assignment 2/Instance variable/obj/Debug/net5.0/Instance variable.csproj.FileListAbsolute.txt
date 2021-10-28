@@ -1,0 +1,16 @@
+C:\Users\HP\Desktop\Day2\Instance variable\bin\Debug\net5.0\Instance variable.exe
+C:\Users\HP\Desktop\Day2\Instance variable\bin\Debug\net5.0\Instance variable.deps.json
+C:\Users\HP\Desktop\Day2\Instance variable\bin\Debug\net5.0\Instance variable.runtimeconfig.json
+C:\Users\HP\Desktop\Day2\Instance variable\bin\Debug\net5.0\Instance variable.runtimeconfig.dev.json
+C:\Users\HP\Desktop\Day2\Instance variable\bin\Debug\net5.0\Instance variable.dll
+C:\Users\HP\Desktop\Day2\Instance variable\bin\Debug\net5.0\ref\Instance variable.dll
+C:\Users\HP\Desktop\Day2\Instance variable\bin\Debug\net5.0\Instance variable.pdb
+C:\Users\HP\Desktop\Day2\Instance variable\obj\Debug\net5.0\Instance variable.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\Day2\Instance variable\obj\Debug\net5.0\Instance variable.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Desktop\Day2\Instance variable\obj\Debug\net5.0\Instance variable.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\Day2\Instance variable\obj\Debug\net5.0\Instance variable.AssemblyInfo.cs
+C:\Users\HP\Desktop\Day2\Instance variable\obj\Debug\net5.0\Instance variable.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\Day2\Instance variable\obj\Debug\net5.0\Instance variable.dll
+C:\Users\HP\Desktop\Day2\Instance variable\obj\Debug\net5.0\ref\Instance variable.dll
+C:\Users\HP\Desktop\Day2\Instance variable\obj\Debug\net5.0\Instance variable.pdb
+C:\Users\HP\Desktop\Day2\Instance variable\obj\Debug\net5.0\Instance variable.genruntimeconfig.cache
